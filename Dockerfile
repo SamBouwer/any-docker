@@ -19,7 +19,7 @@ ENV mongo-connect-uri=mongodb://localhost:27017
 ENV mongo-database-name=coordinator
 ENV any-sync-node-address=127.0.0.1:4430
 ENV any-sync-file-node-address=127.0.0.1:4730
-ENV s3-endpoint
+ENV s3-endpoint=http://127.0.0.1:9000
 ENV s3-region=eu-central-1
 ENV s3-profile=default
 ENV s3-bucket=any-sync-files
