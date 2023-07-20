@@ -1,7 +1,7 @@
 # any-docker
-Dockerized all-in-one instance of an anytype node
+Community-maintained dockerized all-in-one instance of an anytype node.
 
-Aim: to provide a simple to use all-in-one docker image that runs a Anytype node and required infrastructure.
+Aim: provide a simple to use all-in-one docker image that runs a Anytype node and required infrastructure.
 
 Single docker image running:
 
@@ -13,17 +13,19 @@ Single docker image running:
 * any-sync-node
 * any-sync-filenode
 
-## Build
+## Build node
 ```
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
 docker build -t any-docker .
 ```
 
-## Run
+## Run node
 ```
 docker run ...
 ```
+
+## Build clients
 
 # Contribute
 
@@ -36,5 +38,6 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 I am not part of the Anytype team.
 
 # TODO
-* Improve documentation
+* Improve documentation how to build and run a node
+* How to build, distribute and run clients (Windows, Android)
 * Split monolith Docker image to allow BYOI (bring your own infra; s3, mongodo, redis)
