@@ -14,6 +14,18 @@
 # * Build any-sync-node
 # * Build any-sync-filenode
 
+ENV any-sync-coordinator-node-address=127.0.0.1:4830
+ENV mongo-connect-uri=mongodb://localhost:27017
+ENV mongo-database-name=coordinator
+ENV any-sync-node-address=127.0.0.1:4430
+ENV any-sync-file-node-address=127.0.0.1:4730
+ENV s3-endpoint
+ENV s3-region=eu-central-1
+ENV s3-profile=default
+ENV s3-bucket=any-sync-files
+ENV redis-url=redis://127.0.0.1:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
+ENV is-cluster=false
+
 FROM golang:1.19-bullseye
 
 MAINTAINER Sam Bouwer
