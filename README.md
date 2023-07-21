@@ -4,13 +4,18 @@
 
 Community-maintained dockerized all-in-one instance of an anytype node.
 
-Aim: provide a simple to use all-in-one docker image that runs a Anytype node and required infrastructure.
+Aim: provide a simple to use all-in-one docker image that runs a Anytype node and required infrastructure for development and testing.
 
-Single docker image running:
-
-* mongodo
-* minio
+* mongodb
+* minio (s3 storage)
 * redis
+* any-sync-tool
+* any-sync-coordinator
+* any-sync-node
+* any-sync-filenode
+
+Secondly, we want to offer a simple to use yet customizable option with just the Anytype "any-sync" infrastructure while running your own supporting infrastructure (mongodb, s3, redis).
+
 * any-sync-tool
 * any-sync-coordinator
 * any-sync-node
@@ -24,9 +29,14 @@ docker build -t any-docker .
 ```
 
 ## Run node
+
+You can run the nodes using the `docker run` command:
+
 ```
-docker run ...
+docker run .
 ```
+
+Alternatively, you can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files.
 
 ## Build clients
 
