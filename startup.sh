@@ -3,3 +3,5 @@ any-sync-network create
 any-sync-coordinator -c /anytype/any-sync-tools/any-sync-coordinator.yml
 any-sync-node/any-sync-node -c /anytype/any-sync-tools/any-sync-node.yml
 bin/any-sync-filenode -c /anytype/any-sync-tools/any-sync-filenode.yml
+
+read -p "Press Enter to continue" </dev/tty
