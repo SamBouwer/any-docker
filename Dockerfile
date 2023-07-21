@@ -82,4 +82,5 @@ RUN make build
 
 WORKDIR /anytype
 COPY startup.sh .
+RUN chmod -R 700 ./startup.sh
 CMD ["/bin/bash","-c","./startup.sh"]
