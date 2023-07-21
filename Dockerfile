@@ -58,11 +58,6 @@ WORKDIR /anytype/any-sync-coordinator
 RUN make deps
 RUN make build
 
-# Run any-sync-coordinator
-WORKDIR /anytype/bin
-
-RUN any-sync-coordinator -c /anytype/any-sync-tools/any-sync-coordinator.yml
-
 # Build any-sync-node
 WORKDIR /anytype
 
@@ -72,11 +67,6 @@ WORKDIR /anytype/any-sync-node
 
 RUN make deps
 RUN make build
-
-# Run any-sync-coordinator
-WORKDIR /anytype/bin
-
-RUN any-sync-node -c /anytype/any-sync-tools/any-sync-node.yml
 
 # Build any-sync-filenode
 WORKDIR /anytype
@@ -88,12 +78,8 @@ WORKDIR /anytype/any-sync-filenode
 RUN make deps
 RUN make build
 
-# Run any-sync-coordinator
-WORKDIR /anytype/bin
-RUN any-sync-filenode -c /anytype/any-sync-tools/any-sync-filenode.yml
-
 # Run any-sync-tool to create new network 
 
-WORKDIR /anytype/any-sync-tools
+WORKDIR /anytype
 COPY startup.sh .
 CMD ["/bin/bash","-c","./startup.sh"]
