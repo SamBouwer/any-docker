@@ -39,47 +39,34 @@ ENV PATH $GOPATH/bin:$PATH
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 1777 "$GOPATH"
 
-WORKDIR /anytype
-
 # Create config with any-sync-tool
-
+WORKDIR /anytype
 RUN git clone https://github.com/anyproto/any-sync-tools
 WORKDIR /anytype/any-sync-tools
 RUN go install ./any-sync-network
 
 # Build any-sync-coordinator
-
 WORKDIR /anytype
-
 RUN git clone https://github.com/anyproto/any-sync-coordinator
-
 WORKDIR /anytype/any-sync-coordinator
-
 RUN make deps
 RUN make build
 
 # Build any-sync-node
 WORKDIR /anytype
-
 RUN git clone https://github.com/anyproto/any-sync-node
-
 WORKDIR /anytype/any-sync-node
-
 RUN make deps
 RUN make build
 
 # Build any-sync-filenode
 WORKDIR /anytype
-
 RUN git clone https://github.com/anyproto/any-sync-filenode
-
 WORKDIR /anytype/any-sync-filenode
-
 RUN make deps
 RUN make build
 
-# Run any-sync-tool to create new network 
-
+# Run startup script
 WORKDIR /anytype
 COPY startup.sh .
 RUN chmod -R 700 ./startup.sh
