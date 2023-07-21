@@ -27,7 +27,7 @@ docker run ...
 
 ## Build clients
 
-# Contribute
+## Contribute
 
 I'm building a Dockerfile based on the instructions as posted here: https://tech.anytype.io/how-to/self-hosting
 
@@ -37,7 +37,8 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 
 I am not part of the Anytype team.
 
-# TODO
+## TODO
+
 * Improve documentation how to build and run a node
 * Add docker run and docker-compose.yaml examples 
 * How to build, distribute and run clients (Windows, Android)
