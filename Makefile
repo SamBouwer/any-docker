@@ -4,7 +4,7 @@ ANYTYPE_VER=0.33.3
 
 #vars
 IMAGENAME=any-sync-docker
-REPO=SamBouwer
+REPO=sambouwer
 IMAGEFULLNAME=${REPO}/${IMAGENAME}:${ANYTYPE_VER}
 
 .PHONY: help build push all
