@@ -1,4 +1,7 @@
 # any-docker
+
+⚠️ Note: this project is "work in progress" and is not yet ready for production use. It's actually not yet even ready for development use ;)
+
 Community-maintained dockerized all-in-one instance of an anytype node.
 
 Aim: provide a simple to use all-in-one docker image that runs a Anytype node and required infrastructure.
