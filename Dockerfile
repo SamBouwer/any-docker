@@ -3,6 +3,8 @@
 # * Build any-sync-node
 # * Build any-sync-filenode
 
+ARG GOLANG_VER
+
 FROM golang:$GOLANG_VER-bullseye
 
 ENV any-sync-coordinator-node-address=127.0.0.1:4830
@@ -16,8 +18,6 @@ ENV s3-profile=default
 ENV s3-bucket=any-sync-files
 ENV redis-url=redis://127.0.0.1:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
 ENV is-cluster=false
-
-ARG GOLANG_VER
 
 MAINTAINER Sam Bouwer
 
