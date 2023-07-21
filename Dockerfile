@@ -95,5 +95,5 @@ RUN any-sync-filenode -c /anytype/any-sync-tools/any-sync-filenode.yml
 # Run any-sync-tool to create new network 
 
 WORKDIR /anytype/any-sync-tools
-CMD ["any-sync-network","create"]
-
+COPY startup.sh .
+CMD ["/bin/bash","-c","./startup.sh"]
