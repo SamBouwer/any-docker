@@ -25,7 +25,7 @@ Secondly, we want to offer a simple to use yet customizable option with just the
 ```
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
-docker build -t any-docker .
+make
 ```
 
 ## Run node
@@ -33,7 +33,7 @@ docker build -t any-docker .
 You can run the nodes using the `docker run` command:
 
 ```
-docker run .
+docker run ...
 ```
 
 Alternatively, you can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files.
