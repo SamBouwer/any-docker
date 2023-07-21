@@ -17,7 +17,7 @@ ENV s3-bucket=any-sync-files
 ENV redis-url=redis://127.0.0.1:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
 ENV is-cluster=false
 
-ARG GOLANG_VER=1.19
+ARG GOLANG_VER
 
 MAINTAINER Sam Bouwer
 
