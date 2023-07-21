@@ -4,6 +4,13 @@ CHANGELOG
 
 ## [Unreleased]
 
+[0.0.2] - 2023-07-21
+
+### Added
+* Added docker-compose-example.yaml with minio, mongodb, and redis
+* Added .env.example and replaced environment variables in docker-compose-example.yaml with reference to .env.example file
+* Added CHANGELOG.md as separate file
+
 [0.0.1] - 2023-07-20
 
 ### Added
