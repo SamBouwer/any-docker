@@ -22,6 +22,7 @@ help:
 
 .DEFAULT_GOAL := build
 
+build:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME} .
 
 push:
