@@ -33,7 +33,7 @@ make
 You can run the nodes using the `docker run` command:
 
 ```
-docker run ...
+docker run --name any-docker any-sync-docker:0.33.3
 ```
 
 Alternatively, you can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files.
