@@ -12,7 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 * Made the go binaries (any-sync-coordnator, any-sync-node, any-sync-filenode) executable in Dockerfile
 * Fixed the startup script to run the go binaries (any-sync-coordnator, any-sync-node, any-sync-filenode) in the correct way
-* 
+
+### Added
+* Split whole build process into three separate images to make it easier to analyze docker logs
 
 ## [0.0.2] - 2023-07-21
 
