@@ -50,6 +50,8 @@ I'm building a Dockerfile based on the instructions as posted here: https://tech
 
 As building Anytype nodes and clients from source for selfhosting is new, and I am personally new to building docker images, any help is welcome!
 
+⚠️ Note: You will find many Id's and Keys in this repo, but those are often changing and only exposed locally on my machine, so its of little use to you :)
+
 ## Disclaimer
 
 I am not part of the Anytype team.
