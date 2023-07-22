@@ -1,6 +1,7 @@
 version: "3.8"
 
 services:
+
   minio:
     container_name: minio_anytype
     hostname: minio_anytype
@@ -10,23 +11,29 @@ services:
       - 9000:9000
       - 9001:9001
     volumes:
-      - /path/to/anytype-data/s3:/data
+      - s3:/data
     restart: unless-stopped
     env_file:
       - .env.example
-  mongodb:
-    container_name: mongodb_anytype
+      
+  mongo:
+    container_name: mongo_anytype
     image: mongo:4.4
     volumes:
-      - /path/to/anytype-data/db:/data/db
+      - db:/data/db
     restart: unless-stopped
     env_file:
       - .env.example
+      
   redis:
     container_name: redis_anytype
     image: redis
-
+    
   any-node:
     container_name: node_anytype
-    image: any-docker:0.33.3
+    image: docker.io/sambouwer/any-sync-docker:0.33.3
     restart: unless-stopped
+
+volumes:
+  s3:
+  db:
