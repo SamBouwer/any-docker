@@ -29,12 +29,15 @@ services:
     container_name: redis_anytype
     image: redis
     
-  any-node:
-    container_name: node_anytype
-    image: docker.io/sambouwer/any-sync-docker:0.33.3
+  any-sync-coordinator:
+    container_name: any-sync-coordinator
+    image: docker.io/sambouwer/any-sync-coordinator-docker:0.33.3
     restart: unless-stopped
     stdin_open: true
     tty: true
+    build:
+      context: .
+      target: any-sync-coordinator
 
 volumes:
   s3:
