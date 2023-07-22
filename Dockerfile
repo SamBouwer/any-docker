@@ -51,6 +51,8 @@ RUN git clone https://github.com/anyproto/any-sync-coordinator
 WORKDIR /anytype/any-sync-coordinator
 RUN make deps
 RUN make build
+WORKDIR /anytype/any-sync-coordinator/bin
+RUN chmod +x any-sync-coordinator
 
 # Build any-sync-node
 WORKDIR /anytype
