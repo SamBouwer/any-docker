@@ -46,7 +46,7 @@ WORKDIR /anytype/any-sync-tools
 RUN go install ./any-sync-network
 # Instead of running "any-sync-network create" in startup script, just copy the files that should be created in advance
 WORKDIR /anytype
-COPY coordinator.yml sync_1.yml file_1.yml heart.yml .
+COPY coordinator.yml .
 
 # Build any-sync-coordinator
 WORKDIR /anytype
@@ -74,6 +74,9 @@ RUN make build
 WORKDIR /anytype/any-sync-node/bin
 RUN chmod +x any-sync-node
 
+WORKDIR /anytype
+COPY sync_1.yml .
+
 # Run startup script
 WORKDIR /anytype
 COPY startup_node.sh .
@@ -90,6 +93,9 @@ RUN make deps
 RUN make build
 WORKDIR /anytype/any-sync-filenode/bin
 RUN chmod +x any-sync-filenode
+
+WORKDIR /anytype
+COPY file_1.yml .
 
 # Run startup script
 WORKDIR /anytype
