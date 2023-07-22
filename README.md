@@ -30,10 +30,14 @@ make
 
 ## Run node
 
+Before you run your anytype node container, make sure you have mongo, s3 storage, and redis running in a docker network, and connect your anytype node container to that same network. For example:
+
+`docker network create anytype-node_default`
+
 You can run the nodes using the `docker run` command:
 
 ```
-docker run --name any-docker any-sync-docker:0.33.3
+docker run --name any-docker --network=anytype-node_default any-sync-docker:0.33.3
 ```
 
 Alternatively, you can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files.
