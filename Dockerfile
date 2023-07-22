@@ -60,6 +60,8 @@ RUN git clone https://github.com/anyproto/any-sync-node
 WORKDIR /anytype/any-sync-node
 RUN make deps
 RUN make build
+WORKDIR /anytype/any-sync-node/bin
+RUN chmod +x any-sync-node
 
 # Build any-sync-filenode
 WORKDIR /anytype
@@ -67,6 +69,8 @@ RUN git clone https://github.com/anyproto/any-sync-filenode
 WORKDIR /anytype/any-sync-filenode
 RUN make deps
 RUN make build
+WORKDIR /anytype/any-sync-filenode/bin
+RUN chmod +x any-sync-filenode
 
 # Run startup script
 WORKDIR /anytype
