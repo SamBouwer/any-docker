@@ -46,7 +46,7 @@ WORKDIR /anytype/any-sync-tools
 RUN go install ./any-sync-network
 # Instead of running "any-sync-network create" in startup script, just copy the files that should be created in advance
 WORKDIR /anytype
-COPY coordinator.yml sync_1.yml file_1.yml heart.yml /anytype/
+COPY coordinator.yml sync_1.yml file_1.yml heart.yml .
 
 # Build any-sync-coordinator
 WORKDIR /anytype
