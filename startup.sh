@@ -19,3 +19,5 @@ echo any-sync-node is running
 echo starting any-sync-filenode...
 /anytype/any-sync-filenode/bin/any-sync-filenode -c file_1.yml & 
 echo any-sync-filenode is running
+
+read -p "Press Enter to continue" </dev/tty
