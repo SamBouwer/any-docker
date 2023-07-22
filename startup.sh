@@ -1,5 +1,14 @@
 #! /bin/bash
 any-sync-network create
+echo -e "\r"
+echo -e "mongodb://mongorootuser:mongorootpassword@mongo:27017\r"
+echo -e "\r"
+echo -e "\r"
+echo -e "192.168.1.175:9000\r"
+echo -e "\r"
+echo -e "\r"
+echo -e "\r"
+echo -e "redis://redis:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2\r"
 /anytype/any-sync-coordinator/bin/any-sync-coordinator -c coordinator.yml
 /anytype/any-sync-node/bin/any-sync-node -c sync_1.yml
 /anytype/any-sync-filenode/bin/any-sync-filenode -c file_1.yml
