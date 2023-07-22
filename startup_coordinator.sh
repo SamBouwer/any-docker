@@ -13,11 +13,5 @@
 echo starting any-sync-coordinator...
 /anytype/any-sync-coordinator/bin/any-sync-coordinator -c coordinator.yml &
 echo any-sync-coordinator is running
-echo starting any-sync-node...
-/anytype/any-sync-node/bin/any-sync-node -c sync_1.yml &
-echo any-sync-node is running
-echo starting any-sync-filenode...
-/anytype/any-sync-filenode/bin/any-sync-filenode -c file_1.yml & 
-echo any-sync-filenode is running
 
 read -p "Press Enter to continue" </dev/tty
