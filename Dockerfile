@@ -5,7 +5,7 @@
 
 ARG GOLANG_VER
 
-FROM golang:$GOLANG_VER-bullseye
+FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
 
 ENV any-sync-coordinator-node-address=127.0.0.1:4830
 ENV mongo-connect-uri=mongodb://localhost:27017
@@ -57,6 +57,14 @@ RUN make build
 WORKDIR /anytype/any-sync-coordinator/bin
 RUN chmod +x any-sync-coordinator
 
+# Run startup script
+WORKDIR /anytype
+COPY startup.sh .
+RUN chmod -R 700 ./startup.sh
+CMD ["/bin/bash","-c","./startup.sh"]
+
+FROM golang:$GOLANG_VER-bullseye as any-sync-node
+
 # Build any-sync-node
 WORKDIR /anytype
 RUN git clone https://github.com/anyproto/any-sync-node
@@ -65,6 +73,14 @@ RUN make deps
 RUN make build
 WORKDIR /anytype/any-sync-node/bin
 RUN chmod +x any-sync-node
+
+# Run startup script
+WORKDIR /anytype
+COPY startup.sh .
+RUN chmod -R 700 ./startup.sh
+CMD ["/bin/bash","-c","./startup.sh"]
+
+FROM golang:$GOLANG_VER-bullseye as any-sync-filenode
 
 # Build any-sync-filenode
 WORKDIR /anytype
