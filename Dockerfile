@@ -59,9 +59,9 @@ RUN chmod +x any-sync-coordinator
 
 # Run startup script
 WORKDIR /anytype
-COPY startup.sh .
-RUN chmod -R 700 ./startup.sh
-CMD ["/bin/bash","-c","./startup.sh"]
+COPY startup_coordinator.sh .
+RUN chmod -R 700 ./startup_coordinator.sh
+CMD ["/bin/bash","-c","./startup_coordinator.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-node
 
@@ -76,9 +76,9 @@ RUN chmod +x any-sync-node
 
 # Run startup script
 WORKDIR /anytype
-COPY startup.sh .
-RUN chmod -R 700 ./startup.sh
-CMD ["/bin/bash","-c","./startup.sh"]
+COPY startup_node.sh .
+RUN chmod -R 700 ./startup_node.sh
+CMD ["/bin/bash","-c","./startup_node.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-filenode
 
@@ -93,6 +93,6 @@ RUN chmod +x any-sync-filenode
 
 # Run startup script
 WORKDIR /anytype
-COPY startup.sh .
-RUN chmod -R 700 ./startup.sh
-CMD ["/bin/bash","-c","./startup.sh"]
+COPY startup_filenode.sh .
+RUN chmod -R 700 ./startup_filenode.sh
+CMD ["/bin/bash","-c","./startup_filenode.sh"]
