@@ -3,9 +3,14 @@ GOLANG_VER=1.19
 ANYTYPE_VER=0.33.3
 
 #vars
-IMAGENAME=any-sync-docker
+IMAGENAME_COORDINATOR=any-sync-coordinator
+IMAGENAME_NODE=any-sync-node
+IMAGENAME_FILENODE=any-sync-filenode
+
 REPO=sambouwer
-IMAGEFULLNAME=${REPO}/${IMAGENAME}:${ANYTYPE_VER}
+IMAGEFULLNAME_COORDINATOR=${REPO}/${IMAGENAME_COORDINATOR}:${ANYTYPE_VER}
+IMAGEFULLNAME_NODE=${REPO}/${IMAGENAME_NODE}:${ANYTYPE_VER}
+IMAGEFULLNAME_FILENODE=${REPO}/${IMAGENAME_FILENODE}:${ANYTYPE_VER}
 
 .PHONY: help build push all
 
@@ -20,13 +25,21 @@ help:
 	    @echo "push"
 	    @echo "all"
 
-.DEFAULT_GOAL := build
+.DEFAULT_GOAL := all
 
-build:
-	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME} .
+buildc:
+	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} .
+
+buildn:
+	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_NODE} .
+
+buildfn:
+	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} .
 
 push:
 	    @docker login
-	    @docker push ${IMAGEFULLNAME}
+	    @docker push ${IMAGEFULLNAME_COORDINATOR}
+	    @docker push ${IMAGEFULLNAME_NODE}
+	    @docker push ${IMAGEFULLNAME_FILENODE}
 
-all: build push
+all: buildc buildn buildfn
