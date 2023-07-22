@@ -10,6 +10,12 @@
 # echo -e "\r"
 # echo -e "\r"
 # echo -e "redis://redis:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2\r"
-/anytype/any-sync-coordinator/bin/any-sync-coordinator -c coordinator.yml
-/anytype/any-sync-node/bin/any-sync-node -c sync_1.yml
-/anytype/any-sync-filenode/bin/any-sync-filenode -c file_1.yml
+echo starting any-sync-coordinator...
+/anytype/any-sync-coordinator/bin/any-sync-coordinator -c coordinator.yml &
+echo any-sync-coordinator is running
+echo starting any-sync-node...
+/anytype/any-sync-node/bin/any-sync-node -c sync_1.yml &
+echo any-sync-node is running
+echo starting any-sync-filenode...
+/anytype/any-sync-filenode/bin/any-sync-filenode -c file_1.yml & 
+echo any-sync-filenode is running
