@@ -1,5 +1,6 @@
 #! /bin/bash
-any-sync-network create
+# commented out the line below because docker is not designed to run scripts interactively inside a container. The configuration yml files need to be created in advance.
+# any-sync-network create
 echo -e "\r"
 echo -e "mongodb://mongorootuser:mongorootpassword@mongo:27017\r"
 echo -e "\r"
