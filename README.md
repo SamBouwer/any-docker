@@ -4,19 +4,19 @@
 
 Community-maintained dockerized all-in-one instance of an anytype node.
 
-Aim: provide a simple to use all-in-one docker image that runs a Anytype node and required infrastructure for development and testing.
+Aim: provide a simple to use all-in-one docker image that runs an Anytype node and required infrastructure for development and testing.
 
 * mongodb
 * minio (s3 storage)
 * redis
-* any-sync-tool
+* any-heart
 * any-sync-coordinator
 * any-sync-node
 * any-sync-filenode
 
-Secondly, we want to offer a simple to use yet customizable option with just the Anytype "any-sync" infrastructure while running your own supporting infrastructure (mongodb, s3, redis).
+Secondly, we want to offer a simple to use yet customizable option with just the Anytype "any-sync" and middleware infrastructure while running your own supporting infrastructure (mongodb, s3 storage, redis).
 
-* any-sync-tool
+* any-heart
 * any-sync-coordinator
 * any-sync-node
 * any-sync-filenode
