@@ -17,13 +17,16 @@ IMAGEFULLNAME_FILENODE=${REPO}/${IMAGENAME_FILENODE}:${ANYTYPE_VER}
 help:
 	    @echo "Makefile arguments:"
 	    @echo ""
-	    @echo "GOLANG_VER - Go version"
-	    @echo "ANYTYPE_VER - Anytype version"
+	    @echo "GOLANG_VER - Go version (default: 1.19)"
+	    @echo "ANYTYPE_VER - Anytype version (default: 0.33.3)"
 	    @echo ""
 	    @echo "Makefile commands:"
-	    @echo "build"
+	    @echo "buildc"
+	    @echo "buildn"
+	    @echo "buildfn"
 	    @echo "push"
 	    @echo "all"
+            @echo "all-push"
 
 .DEFAULT_GOAL := all
 
@@ -43,3 +46,5 @@ push:
 	    @docker push ${IMAGEFULLNAME_FILENODE}
 
 all: buildc buildn buildfn
+
+all-push: buildc buildn buildfn push
