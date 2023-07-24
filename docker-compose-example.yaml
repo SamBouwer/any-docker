@@ -39,6 +39,37 @@ services:
       context: .
       target: any-sync-coordinator
 
+  any-sync-node:
+    container_name: any-sync-node
+    image: docker.io/sambouwer/any-sync-node-docker:0.33.3
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: any-sync-node
+
+  any-sync-filenode:
+    container_name: any-sync-filenode
+    image: docker.io/sambouwer/any-sync-filenode-docker:0.33.3
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: any-sync-filenode
+
+  any-heart:
+    container_name: any-heart
+    image: docker.io/sambouwer/any-heart-docker:0.33.3
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: any-heart
+
+
 volumes:
   s3:
   db:
