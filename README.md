@@ -52,6 +52,29 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 
 ⚠️ Note: You will find many Id's and Keys in this repo, but those are often changing and only exposed locally on my machine, so its of little use to you :)
 
+### Prepare dev environment
+
+- Download and install go-1.19
+  `wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz`
+  `tar -C /usr/local -xzf /home/bouwers/go1.19.11.linux-amd64.tar.gz`
+- Add GOPATH and GOROOT to PATH
+  `nano ~/.bashrc`
+  Add the following lines:
+  ```
+  export GOPATH=$HOME/go
+  export GOROOT=/usr/local/go
+  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+  ```
+  And then run:
+  `. ~/.bashrc`
+- Test with `go version` which should return
+  `go version go1.19.11 linux/amd64`
+- Clone this repo
+  `git clone https://github.com/SamBouwer/any-docker`
+  `cd any-docker`
+- Run `make` to build the docker images for all four
+- 
+
 ## Disclaimer
 
 I am not part of the Anytype team.
