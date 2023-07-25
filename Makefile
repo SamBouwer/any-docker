@@ -26,7 +26,7 @@ help:
 	    @echo "buildfn"
 	    @echo "push"
 	    @echo "all"
-            @echo "all-push"
+	    @echo "all-push"
 
 .DEFAULT_GOAL := all 
 
