@@ -21,14 +21,14 @@ Secondly, we want to offer a simple to use yet customizable option with just the
 * any-sync-node
 * any-sync-filenode
 
-## Build node
+## Build nodes
 ```
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
 make
 ```
 
-## Run node
+## Run nodes
 
 Before you run your anytype node container, make sure you have mongo, s3 storage, and redis running in a docker network, and connect your anytype node container to that same network. For example:
 
