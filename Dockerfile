@@ -102,3 +102,20 @@ WORKDIR /anytype
 COPY startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
+
+# Build any-heart
+WORKDIR /anytype
+RUN git clone https://github.com/anyproto/anytype-heart
+COPY heart.yml .
+WORKDIR /anytype/any-heart
+RUN make install-dev-js ANY_SYNC_NETWORK=/anytype/heart.yml
+RUN make build-ios ANY_SYNC_NETWORK=/anytype/heart.yml
+RUN make build-android ANY_SYNC_NETWORK=/anytype/heart.yml
+WORKDIR /anytype/any-heart/anytype-ts
+RUN chmod +x any-heart
+
+# Run startup script
+WORKDIR /anytype
+COPY startup_heart.sh .
+RUN chmod -R 700 ./startup_heart.sh
+CMD ["/bin/bash","-c","./startup_heart.sh"]
