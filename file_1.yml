@@ -33,11 +33,11 @@ network:
 networkStorePath: .
 networkUpdateIntervalSec: 600
 s3Store:
-    endpoint: 192.168.1.175:9000
+    endpoint: minio_anytype:9000
     region: eu-central-1
     profile: default
     bucket: any-sync-files
     maxThreads: 16
 redis:
     isCluster: false
-    url: redis://redis:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
+    url: redis://redis_db:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
