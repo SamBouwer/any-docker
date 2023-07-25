@@ -28,7 +28,7 @@ help:
 	    @echo "all"
             @echo "all-push"
 
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := all 
 
 buildc:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
