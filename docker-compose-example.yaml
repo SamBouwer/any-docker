@@ -16,7 +16,7 @@ services:
     env_file:
       - .env.example
       
-  mongo:
+  mongo_db:
     container_name: mongo_anytype
     image: mongo:4.4
     volumes:
@@ -25,13 +25,17 @@ services:
     env_file:
       - .env.example
       
-  redis:
+  redis_db:
     container_name: redis_anytype
     image: redis
+    ports:
+      - "6379:6379"
     
   any-sync-coordinator:
     container_name: any-sync-coordinator
     image: docker.io/sambouwer/any-sync-coordinator-docker:0.33.3
+    ports:
+      - "4830:4830" # coordinator
     restart: unless-stopped
     stdin_open: true
     tty: true
@@ -42,6 +46,8 @@ services:
   any-sync-node:
     container_name: any-sync-node
     image: docker.io/sambouwer/any-sync-node-docker:0.33.3
+    ports:
+      - "4430:4430" # sync node
     restart: unless-stopped
     stdin_open: true
     tty: true
@@ -52,6 +58,8 @@ services:
   any-sync-filenode:
     container_name: any-sync-filenode
     image: docker.io/sambouwer/any-sync-filenode-docker:0.33.3
+    ports:
+      - "4730:4730" # filenode
     restart: unless-stopped
     stdin_open: true
     tty: true
