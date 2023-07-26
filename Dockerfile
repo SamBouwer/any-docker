@@ -38,7 +38,7 @@ RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/tools/bin:$PATH
 
 RUN mkdir /opt/android-sdk
 RUN cd /opt/android-sdk
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -o cmdtools.zip
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
 RUN unzip -q cmdtools.zip
 RUN mkdir /usr/lib/android-sdk/ndk-bundle
 RUN sdkmanager --install "ndk;23.2.8568313"
