@@ -30,6 +30,7 @@ RUN set -eux; \
                 protobuf-compiler \
                 libprotoc-dev \
                 android-sdk \
+                unzip \
         ; \
         rm -rf /var/lib/apt/lists/*
 
