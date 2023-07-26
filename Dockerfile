@@ -39,6 +39,7 @@ RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386
 RUN unzip -q cmdtools.zip
 RUN cd cmdline-tools
 RUN mkdir latest
+RUN ls
 RUN mv  bin/ lib/ NOTICE.txt source.properties latest/
 RUN export ANDROID_HOME=/usr/lib/android-sdk
 RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
