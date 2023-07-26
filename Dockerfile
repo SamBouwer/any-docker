@@ -1,7 +1,6 @@
+# Note: this Dockerfile installs all dependencies, including packages like Android SDK to be able to build the docker images.
 # TODO
 # * Use any-sync-tool with Dockerfile ARG's from ENV file to create any-sync-network yaml configuration files
-# * Build any-sync-node
-# * Build any-sync-filenode
 
 ARG GOLANG_VER
 
@@ -28,6 +27,9 @@ RUN set -eux; \
         apt-get install -y --no-install-recommends \
                 git \
                 openssl \
+                protobuf-compiler \
+                libprotoc-dev \
+                android-sdk \
         ; \
         rm -rf /var/lib/apt/lists/*
 
@@ -36,6 +38,11 @@ ENV PATH /usr/local/go/bin:$PATH
 ENV GOPATH /go
 
 ENV PATH $GOPATH/bin:$PATH
+
+RUN export ANDROID_HOME=/usr/lib/android-sdk
+RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/tools/bin:$PATH
+RUN sdkmanager
+RUN sdkmanager --install "ndk;23.2.8568313"
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 1777 "$GOPATH"
 
@@ -103,14 +110,25 @@ COPY startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
 
-# Build any-heart
+# Build any-heart inlcuding protobuf files and test dependencies
 WORKDIR /anytype
 RUN git clone https://github.com/anyproto/anytype-heart
 COPY heart.yml .
 WORKDIR /anytype/any-heart
+RUN make test-deps
+RUN make test
+RUN make setup-protoc
+RUN make protos
+RUN mkdir ../anytype-ts
+# RUN mkdir ../anytype-ts/dist
+# RUN mkdir ../anytype-ts/dist/lib
 RUN make install-dev-js ANY_SYNC_NETWORK=/anytype/heart.yml
-RUN make build-ios ANY_SYNC_NETWORK=/anytype/heart.yml
-RUN make build-android ANY_SYNC_NETWORK=/anytype/heart.yml
+# I don't have a machine running MacOS so I cannot setup the deps for iOS
+#RUN make build-ios ANY_SYNC_NETWORK=/anytype/heart.yml
+# I can't get the Android version to properly build
+#RUN make build-android ANY_SYNC_NETWORK=/anytype/heart.yml
+RUN make protos-java
+
 WORKDIR /anytype/any-heart/anytype-ts
 RUN chmod +x any-heart
 
