@@ -42,7 +42,7 @@ ENV PATH $GOPATH/bin:$PATH
 RUN export ANDROID_HOME=/usr/lib/android-sdk
 RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/tools/bin:$PATH
 RUN mkdir /usr/lib/android-sdk/ndk-bundle
-RUN mv -R /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
+RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 RUN sdkmanager
 RUN sdkmanager --install "ndk;23.2.8568313"
 
