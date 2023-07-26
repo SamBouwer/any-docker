@@ -30,21 +30,25 @@ RUN set -eux; \
                 protobuf-compiler \
                 libprotoc-dev \
                 android-sdk \
-                sdkmanager \
         ; \
         rm -rf /var/lib/apt/lists/*
+
+RUN export ANDROID_HOME=/usr/lib/android-sdk
+RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/tools/bin:$PATH
+
+RUN mkdir /opt/android-sdk
+RUN cd /opt/android-sdk
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -o cmdtools.zip
+RUN unzip -q cmdtools.zip
+RUN mkdir /usr/lib/android-sdk/ndk-bundle
+RUN sdkmanager --install "ndk;23.2.8568313"
+RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 ENV PATH /usr/local/go/bin:$PATH
 
 ENV GOPATH /go
 
 ENV PATH $GOPATH/bin:$PATH
-
-RUN export ANDROID_HOME=/usr/lib/android-sdk
-RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/tools/bin:$PATH
-RUN sdkmanager --install "ndk;23.2.8568313"
-RUN mkdir /usr/lib/android-sdk/ndk-bundle
-RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 1777 "$GOPATH"
 
