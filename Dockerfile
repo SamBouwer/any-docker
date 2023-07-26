@@ -110,11 +110,15 @@ COPY startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
 
+FROM golang:$GOLANG_VER-bullseye as any-heart
+
 # Build any-heart inlcuding protobuf files and test dependencies
 WORKDIR /anytype
 RUN git clone https://github.com/anyproto/anytype-heart
 COPY heart.yml .
 WORKDIR /anytype/any-heart
+RUN mkdir /usr/lib/android-sdk/ndk-bundle
+RUN mv -R /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 RUN make test-deps
 RUN make test
 RUN make setup-protoc
