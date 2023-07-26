@@ -7,7 +7,7 @@ drpc:
         maxMsgSizeMb: 256
 yamux:
     listenAddrs:
-        - 127.0.0.1:4430
+        - 0.0.0.0:4430
     writeTimeoutSec: 10
     dialTimeoutSec: 10
 network:
