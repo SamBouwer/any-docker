@@ -35,14 +35,12 @@ RUN set -eux; \
         rm -rf /var/lib/apt/lists/*
 
 RUN export ANDROID_HOME=/usr/lib/android-sdk
-RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/tools/bin:$PATH
-
-RUN mkdir /opt/android-sdk
-RUN cd /opt/android-sdk
+RUN export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
+RUN cd /usr/lib/android-sdk
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
 RUN unzip -q cmdtools.zip
-RUN mkdir /usr/lib/android-sdk/ndk-bundle
 RUN sdkmanager --install "ndk;23.2.8568313"
+RUN mkdir /usr/lib/android-sdk/ndk-bundle
 RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 ENV PATH /usr/local/go/bin:$PATH
