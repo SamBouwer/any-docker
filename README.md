@@ -65,13 +65,17 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
   `nano ~/.bashrc`
   
   Add the following lines:
+  
   ```
   export GOPATH=$HOME/go
   export GOROOT=/usr/local/go
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
   ```
+  
   And then run:
+  
   `. ~/.bashrc`
+  
 - Test with `go version` which should return
   
   `go version go1.19.11 linux/amd64`
@@ -85,8 +89,14 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
   `nano ~/.bashrc`
 
   Add the following line:
-  `export ANDROID_SDK_ROOT=/usr/lib/android-sdk`
+  
+  ```
+  export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+  export ANDROID_HOME=/usr/lib/android-sdk/
+  ```
+  
   And then run:
+  
   `. ~/.bashrc`
   
 - Clone this repo
