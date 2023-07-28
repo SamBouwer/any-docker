@@ -98,6 +98,10 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
   And then run:
   
   `. ~/.bashrc`
+
+- Install npm
+
+  `apt install npm`
   
 - Clone this repo
   
