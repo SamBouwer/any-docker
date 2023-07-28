@@ -52,7 +52,7 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 
 ⚠️ Note: You will find many Id's and Keys in this repo, but those are often changing and only exposed locally on my machine, so its of little use to you :)
 
-### Prepare dev environment
+### Prepare dev environment (to be scripted in `setup_dev_env.sh`
 
 - Download and install go-1.19
   
@@ -75,6 +75,19 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 - Test with `go version` which should return
   
   `go version go1.19.11 linux/amd64`
+
+- Install Android SDK
+
+  `apt install android-sdk`
+
+  Add install path
+  
+  `nano ~/.bashrc`
+
+  Add the following line:
+  `export ANDROID_SDK_ROOT=/usr/lib/android-sdk`
+  And then run:
+  `. ~/.bashrc`
   
 - Clone this repo
   
