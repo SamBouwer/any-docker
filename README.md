@@ -102,6 +102,20 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 - Install npm
 
   `apt install npm`
+
+- Install libsecret-1
+
+  `apt-get install libsecret-1-dev`
+
+- Install jq
+  
+  `apt install jq`
+  
+- Install wine (for building Windows app on Linux)
+  
+  `apt install wine`
+  `sudo dpkg --add-architecture i386 && sudo apt-get update &&
+  sudo apt-get install wine32`
   
 - Clone this repo
   
