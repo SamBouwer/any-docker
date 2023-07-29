@@ -7,7 +7,7 @@ drpc:
         maxMsgSizeMb: 256
 yamux:
     listenAddrs:
-        - 0.0.0.0:4830
+        - 172.18.0.1:4830
     writeTimeoutSec: 10
     dialTimeoutSec: 10
 network:
@@ -16,17 +16,17 @@ network:
     nodes:
         - peerId: 12D3KooWLDXcBtcJjWHfHhyk576jY6Ak7KPsLU48trkBi8gb7aPD
           addresses:
-            - any-sync-coordinator:4830
+            - 172.18.0.1:4830
           types:
             - coordinator
         - peerId: 12D3KooWR2SNh1bXoXFBLhV4ydvdSwLXpsNwqivPQ8dVoLWH2BWX
           addresses:
-            - 0.0.0.0:4430
+            - 172.18.0.2:4430
           types:
             - tree
         - peerId: 12D3KooWRByYYFg4TXQ2kDGUfxwZgj3kqa3C4xNeL1m8RgovZGab
           addresses:
-            - 0.0.0.0:4730
+            - 172.18.0.3:4730
           types:
             - file
     creationTime: 2023-07-22T20:09:15.795329814Z
