@@ -2,23 +2,25 @@
 # TODO
 # * Use any-sync-tool with Dockerfile ARG's from ENV file to create any-sync-network yaml configuration files
 
+MAINTAINER sam.bouwer@outlook.com
+
 ARG GOLANG_VER
 
-FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
+# ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
 
-ENV any-sync-coordinator-node-address=127.0.0.1:4830
-ENV mongo-connect-uri=mongodb://localhost:27017
+ENV any-sync-coordinator-node-address0.0.0.0:4830
+ENV mongo-connect-uri=mongodb://mongorootuser:mongorootpassword@mongo:27017
 ENV mongo-database-name=coordinator
-ENV any-sync-node-address=127.0.0.1:4430
-ENV any-sync-file-node-address=127.0.0.1:4730
-ENV s3-endpoint=http://127.0.0.1:9000
+ENV any-sync-node-address=0.0.0.0:4430
+ENV any-sync-file-node-address=0.0.0.0:4730
+ENV s3-endpoint=http://0.0.0.0:9000
 ENV s3-region=eu-central-1
 ENV s3-profile=default
 ENV s3-bucket=any-sync-files
-ENV redis-url=redis://127.0.0.1:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
+ENV redis-url=redis://redis_db:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
 ENV is-cluster=false
 
-MAINTAINER Sam Bouwer
+FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
 
 # Install dependencies
 
@@ -77,6 +79,7 @@ RUN chmod +x any-sync-coordinator
 WORKDIR /anytype
 COPY startup_coordinator.sh .
 RUN chmod -R 700 ./startup_coordinator.sh
+EXPOSE 4830
 CMD ["/bin/bash","-c","./startup_coordinator.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-node
@@ -98,6 +101,7 @@ RUN mkdir db
 WORKDIR /anytype
 COPY startup_node.sh .
 RUN chmod -R 700 ./startup_node.sh
+EXPOSE 4430
 CMD ["/bin/bash","-c","./startup_node.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-filenode
@@ -118,6 +122,7 @@ COPY file_1.yml .
 WORKDIR /anytype
 COPY startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
+EXPOSE 4730
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-heart
