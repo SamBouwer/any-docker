@@ -32,23 +32,9 @@ RUN set -eux; \
                 openssl \
                 protobuf-compiler \
                 libprotoc-dev \
-                android-sdk \
                 unzip \
         ; \
         rm -rf /var/lib/apt/lists/*
-
-RUN cd /usr/lib/android-sdk
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
-RUN unzip -q cmdtools.zip
-RUN cd cmdline-tools
-RUN mkdir latest
-RUN mv  bin/ latest/
-RUN export ANDROID_HOME=/usr/lib/android-sdk
-RUN export ANDROID_SDK_ROOT=/usr/lib/android-sdk
-RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-RUN sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/bin --install "ndk;23.2.8568313"
-RUN mkdir /usr/lib/android-sdk/ndk-bundle
-RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 ENV PATH /usr/local/go/bin:$PATH
 
@@ -139,6 +125,31 @@ CMD ["/bin/bash","-c","./startup_filenode.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-heart
 MAINTAINER sam.bouwer@outlook.com
+
+RUN set -eux; \
+        apt-get update; \
+        apt-get install -y --no-install-recommends \
+                git \
+                openssl \
+                protobuf-compiler \
+                libprotoc-dev \
+                android-sdk \
+                unzip \
+        ; \
+        rm -rf /var/lib/apt/lists/*
+
+RUN cd /usr/lib/android-sdk
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
+RUN unzip -q cmdtools.zip
+RUN cd cmdline-tools
+RUN mkdir latest
+RUN mv  bin/ latest/
+RUN export ANDROID_HOME=/usr/lib/android-sdk
+RUN export ANDROID_SDK_ROOT=/usr/lib/android-sdk
+RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+RUN sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/bin --install "ndk;23.2.8568313"
+RUN mkdir /usr/lib/android-sdk/ndk-bundle
+RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 # Build any-heart inlcuding protobuf files and test dependencies
 WORKDIR /anytype
