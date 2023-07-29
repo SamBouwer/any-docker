@@ -2,7 +2,7 @@ networkId: N77ryVAnPef9QABVUv8brAJSUvkgWPXDkGkzAoPK8uPMedce
 nodes:
     - peerId: 12D3KooWNvuytArG7VB3SAuutBeqUKwByPFC13qoTeM8LTASSqH4
       addresses:
-        - 0.0.0.0:4830
+        - any-sync-coordinator:4830
       types:
         - coordinator
     - peerId: 12D3KooWS2T2x1483MF9jyWP6fbsoow7rQVApwBeh8Jd9VGcVwxC
