@@ -4,6 +4,8 @@
 
 ARG GOLANG_VER
 
+## BUILD COORDINATOR ##
+
 FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
 MAINTAINER sam.bouwer@outlook.com
 
@@ -81,6 +83,9 @@ RUN chmod -R 700 ./startup_coordinator.sh
 EXPOSE 4830
 CMD ["/bin/bash","-c","./startup_coordinator.sh"]
 
+
+## BUILD SYNC NODE ##
+
 FROM golang:$GOLANG_VER-bullseye as any-sync-node
 MAINTAINER sam.bouwer@outlook.com
 
@@ -104,7 +109,11 @@ RUN chmod -R 700 ./startup_node.sh
 EXPOSE 4430
 CMD ["/bin/bash","-c","./startup_node.sh"]
 
+
+## BUILD SYNC FILENODE ##
+
 FROM golang:$GOLANG_VER-bullseye as any-sync-filenode
+MAINTAINER sam.bouwer@outlook.com
 
 # Build any-sync-filenode
 WORKDIR /anytype
@@ -124,6 +133,9 @@ COPY startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
 EXPOSE 4730
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
+
+
+## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
 FROM golang:$GOLANG_VER-bullseye as any-heart
 MAINTAINER sam.bouwer@outlook.com
