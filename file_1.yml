@@ -1,7 +1,7 @@
 account:
-    peerId: 12D3KooWL9VJYd7AtRTZ7kvYJWNUcXFmTmrpuspYJ7NPeYpL6y8k
-    peerKey: ArR0RDxk+q5FndcctS8EuL/qMrLCa5LfkDyWJILjuTSZevi+MoydVakOionSCm9hYK23PDCUSoJ+0AMIBN7jOQ==
-    signingKey: ArR0RDxk+q5FndcctS8EuL/qMrLCa5LfkDyWJILjuTSZevi+MoydVakOionSCm9hYK23PDCUSoJ+0AMIBN7jOQ==
+    peerId: 12D3KooWEzzQDbUfPmTPXb2odkA9iRm69LnZianqGgZ6hhxZbrTa
+    peerKey: oEqQX8j7DkQt1ZhbHHfN55cXGvdVKOsZqOQozm3KSINNAzXxi082n1VSnlraxxVvOnsvB9rw2zehkG4wLYchmQ==
+    signingKey: oEqQX8j7DkQt1ZhbHHfN55cXGvdVKOsZqOQozm3KSINNAzXxi082n1VSnlraxxVvOnsvB9rw2zehkG4wLYchmQ==
 drpc:
     stream:
         maxMsgSizeMb: 256
@@ -11,25 +11,25 @@ yamux:
     writeTimeoutSec: 10
     dialTimeoutSec: 10
 network:
-    id: 64bc393264b22f0006b37926
-    networkId: N77ryVAnPef9QABVUv8brAJSUvkgWPXDkGkzAoPK8uPMedce
+    id: 64c5851cec0fa57f17c37063
+    networkId: N55gSX4DCYyAr2GatgDHg3ZDmgUWu4bGrSxjwjQGs1opjGzS
     nodes:
-        - peerId: 12D3KooWNvuytArG7VB3SAuutBeqUKwByPFC13qoTeM8LTASSqH4
+        - peerId: 12D3KooWMXwSnXhEvoiWSPDpSeeytg6roqbhRcFbjz9U894zRZRM
           addresses:
             - 172.18.0.2:4830
           types:
             - coordinator
-        - peerId: 12D3KooWS2T2x1483MF9jyWP6fbsoow7rQVApwBeh8Jd9VGcVwxC
+        - peerId: 12D3KooWRR72KmktsuRuBnaUUiR8cD7244piCRzxuF2Z67VRhvHy
           addresses:
             - 172.18.0.3:4430
           types:
             - tree
-        - peerId: 12D3KooWL9VJYd7AtRTZ7kvYJWNUcXFmTmrpuspYJ7NPeYpL6y8k
+        - peerId: 12D3KooWEzzQDbUfPmTPXb2odkA9iRm69LnZianqGgZ6hhxZbrTa
           addresses:
             - 172.18.0.4:4730
           types:
             - file
-    creationTime: 2023-07-22T20:16:50.395668925Z
+    creationTime: 2023-07-29T21:31:08.088553197Z
 networkStorePath: .
 networkUpdateIntervalSec: 600
 s3Store:
