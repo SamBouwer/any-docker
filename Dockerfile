@@ -2,8 +2,6 @@
 # TODO
 # * Use any-sync-tool with Dockerfile ARG's from ENV file to create any-sync-network yaml configuration files
 
-MAINTAINER sam.bouwer@outlook.com
-
 ARG GOLANG_VER
 
 # ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
@@ -21,7 +19,7 @@ ENV redis-url=redis://redis_db:6379/?dial_timeout=3&db=1&read_timeout=6s&max_ret
 ENV is-cluster=false
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
-
+MAINTAINER sam.bouwer@outlook.com
 # Install dependencies
 
 RUN set -eux; \
@@ -83,6 +81,7 @@ EXPOSE 4830
 CMD ["/bin/bash","-c","./startup_coordinator.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-node
+MAINTAINER sam.bouwer@outlook.com
 
 # Build any-sync-node
 WORKDIR /anytype
@@ -126,6 +125,7 @@ EXPOSE 4730
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
 
 FROM golang:$GOLANG_VER-bullseye as any-heart
+MAINTAINER sam.bouwer@outlook.com
 
 # Build any-heart inlcuding protobuf files and test dependencies
 WORKDIR /anytype
