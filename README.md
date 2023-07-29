@@ -21,21 +21,21 @@ Any-sync
 
 ## Run node in docker
 
-Before you run your anytype node container, make sure you have mongo, s3 storage, and redis running in a docker network, and connect your anytype node container to that same network. For example:
+You can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files. 
 
-`docker network create anytype-node_default`
-
-You can run the nodes using the `docker run` command:
+To get started:
 
 ```
-docker run --name any-docker --network=anytype-node_default any-sync-docker:0.33.3
+git clone https://github.com/SamBouwer/any-docker
+cd any-docker
+docker-compose up -d
 ```
 
-Alternatively, you can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files.
+Congratulations! You are now running your own Anytype Node! To be able. To actually use the mode, we need to build Anytype clients that can connect to this node. 
 
 ## Build nodes
 
-If you want to build the any-docker images yourself, clone this repo, enter the directory and make it!
+You can skip this step of you just want to run nodes as provided in the docker images without further customization. If you want to build the any-docker images yourself, clone this repo, enter the directory and `make` it!
 
 ```
 git clone https://github.com/SamBouwer/any-docker
@@ -48,7 +48,7 @@ This will build the followind docker images:
 - any-sync-coordinator
 - any-sync-node
 - any-sync-filenode
-- anytype-heart (work in progress)
+- anytype-heart (work in progress, not yet present in docker-compose.yaml)
 - anytype-ts (desktop clients; work in progress)
 - To be added: iOS client
 - to be added: Android client
@@ -146,7 +146,6 @@ I am not part of the Anytype team.
 ## TODO
 
 * Improve documentation how to build and run a node
-* Add docker run and docker-compose.yaml examples
 * Take anytype-heart out of Dockerimage and make it part of the client building steps
 * How to build, distribute and run clients (Windows, Android)
 * Split monolith Docker image to allow BYOI (bring your own infra; s3, mongodo, redis)
