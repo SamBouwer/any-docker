@@ -85,6 +85,7 @@ FROM golang:$GOLANG_VER-bullseye as any-sync-node
 WORKDIR /anytype
 RUN git clone https://github.com/anyproto/any-sync-node
 WORKDIR /anytype/any-sync-node
+RUN mkdir db
 RUN make deps
 RUN make build
 WORKDIR /anytype/any-sync-node/bin
