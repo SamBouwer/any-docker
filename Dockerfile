@@ -42,7 +42,6 @@ RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386
 RUN unzip -q cmdtools.zip
 RUN cd cmdline-tools
 RUN mkdir latest
-RUN ls
 RUN mv  bin/ latest/
 RUN export ANDROID_HOME=/usr/lib/android-sdk
 RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
@@ -100,7 +99,7 @@ RUN chmod +x any-sync-node
 
 WORKDIR /anytype
 COPY sync_1.yml .
-RUN mkdir db
+RUN mkdir -p /anytype/db
 
 # Run startup script
 WORKDIR /anytype
