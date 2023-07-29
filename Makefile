@@ -30,13 +30,13 @@ help:
 
 .DEFAULT_GOAL := all 
 
-buildc:
+build-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
 
-buildn:
+build-node:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_NODE} --target ${IMAGENAME_NODE} .
 
-buildfn:
+build-filenode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} --target ${IMAGENAME_FILENODE} .
 
 push:
@@ -45,6 +45,6 @@ push:
 	    @docker push ${IMAGEFULLNAME_NODE}
 	    @docker push ${IMAGEFULLNAME_FILENODE}
 
-all: buildc buildn buildfn
+all: build-coordinator build-node build-filenode
 
-all-push: buildc buildn buildfn push
+all-push: build-coordinator build-node build-filenode push
