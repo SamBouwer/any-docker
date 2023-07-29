@@ -8,7 +8,7 @@ ARG GOLANG_VER
 
 # ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
 
-ENV any-sync-coordinator-node-address0.0.0.0:4830
+ENV any-sync-coordinator-node-address=0.0.0.0:4830
 ENV mongo-connect-uri=mongodb://mongorootuser:mongorootpassword@mongo:27017
 ENV mongo-database-name=coordinator
 ENV any-sync-node-address=0.0.0.0:4430
