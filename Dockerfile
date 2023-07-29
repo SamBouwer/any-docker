@@ -4,6 +4,9 @@
 
 ARG GOLANG_VER
 
+FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
+MAINTAINER sam.bouwer@outlook.com
+
 # ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
 
 ENV any-sync-coordinator-node-address=0.0.0.0:4830
@@ -18,8 +21,6 @@ ENV s3-bucket=any-sync-files
 ENV redis-url=redis://redis_db:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
 ENV is-cluster=false
 
-FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
-MAINTAINER sam.bouwer@outlook.com
 # Install dependencies
 
 RUN set -eux; \
