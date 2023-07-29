@@ -44,6 +44,7 @@ RUN cd cmdline-tools
 RUN mkdir latest
 RUN mv  bin/ latest/
 RUN export ANDROID_HOME=/usr/lib/android-sdk
+RUN export ANDROID_SDK_ROOT=/usr/lib/android-sdk
 RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 RUN sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/bin --install "ndk;23.2.8568313"
 RUN mkdir /usr/lib/android-sdk/ndk-bundle
