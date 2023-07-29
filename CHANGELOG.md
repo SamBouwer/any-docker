@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2023-07-29
+
+### Added
+* Static IPs for docker (testing), also in yaml config files
+* Building anytype-heart middleware libraries and anytype-ts client app (Windows and Linux for now, MacOS to be added)
+* Make a start with building Android app (iOS to be added)
+
+### Improved
+* Makefile improvements (includes git pull)
+* Readme.md improvements
+
 ## [0.0.2] - 2023-07-22
 
 ### Fixed
