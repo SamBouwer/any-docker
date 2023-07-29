@@ -16,17 +16,17 @@ network:
     nodes:
         - peerId: 12D3KooWNvuytArG7VB3SAuutBeqUKwByPFC13qoTeM8LTASSqH4
           addresses:
-            - 127.0.0.1:4830
+            - 0.0.0.0:4830
           types:
             - coordinator
         - peerId: 12D3KooWS2T2x1483MF9jyWP6fbsoow7rQVApwBeh8Jd9VGcVwxC
           addresses:
-            - 127.0.0.1:4430
+            - 0.0.0.0:4430
           types:
             - tree
         - peerId: 12D3KooWL9VJYd7AtRTZ7kvYJWNUcXFmTmrpuspYJ7NPeYpL6y8k
           addresses:
-            - 127.0.0.1:4730
+            - 0.0.0.0:4730
           types:
             - file
     creationTime: 2023-07-22T20:16:50.395668925Z
