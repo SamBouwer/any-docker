@@ -40,4 +40,4 @@ s3Store:
     maxThreads: 16
 redis:
     isCluster: false
-    url: redis://redis_db:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
+    url: redis://172.18.0.8:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
