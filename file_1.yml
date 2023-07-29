@@ -33,7 +33,7 @@ network:
 networkStorePath: .
 networkUpdateIntervalSec: 600
 s3Store:
-    endpoint: minio_anytype:9000
+    endpoint: 172.18.0.5:9000
     region: eu-central-1
     profile: default
     bucket: any-sync-files
