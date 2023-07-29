@@ -32,7 +32,7 @@ network:
     creationTime: 2023-07-22T20:09:15.795329814Z
 networkStorePath: .
 mongo:
-    connect: mongodb://mongorootuser:mongorootpassword@mongo:27017
+    connect: mongodb://mongorootuser:mongorootpassword@172.18.0.6:27017
     database: coordinator
 spaceStatus:
     runSeconds: 20
