@@ -21,7 +21,7 @@ help:
 	    @echo "ANYTYPE_VER - Anytype version (default: 0.33.3)"
 	    @echo ""
 	    @echo "Makefile commands:"
-            @echo "pull to pull latest from repo"
+	    @echo "pull to pull latest from repo"
 	    @echo "build-coordinator to  build coordinator only"
 	    @echo "build-node to build node only"
 	    @echo "build-filenode to build filenode only"
