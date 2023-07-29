@@ -4,31 +4,22 @@
 
 Community-maintained dockerized all-in-one instance of an anytype node.
 
-Aim: provide a simple to use all-in-one docker image that runs an Anytype node and required infrastructure for development and testing.
+Aim: provide a simple to use all-in-one docker solution that runs an Anytype node and required infrastructure for development and testing.
 
+We want to offer a simple to use yet customizable option with just the Anytype "any-sync" and middleware infrastructure while running your own supporting infrastructure.
+
+Infra
 * mongodb
 * minio (s3 storage)
 * redis
+
+Any-sync
 * any-heart
 * any-sync-coordinator
 * any-sync-node
 * any-sync-filenode
 
-Secondly, we want to offer a simple to use yet customizable option with just the Anytype "any-sync" and middleware infrastructure while running your own supporting infrastructure (mongodb, s3 storage, redis).
-
-* any-heart
-* any-sync-coordinator
-* any-sync-node
-* any-sync-filenode
-
-## Build nodes
-```
-git clone https://github.com/SamBouwer/any-docker
-cd any-docker
-make
-```
-
-## Run nodes
+## Run node in docker
 
 Before you run your anytype node container, make sure you have mongo, s3 storage, and redis running in a docker network, and connect your anytype node container to that same network. For example:
 
@@ -42,7 +33,29 @@ docker run --name any-docker --network=anytype-node_default any-sync-docker:0.33
 
 Alternatively, you can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files.
 
+## Build nodes
+
+If you want to build the any-docker images yourself, clone this repo, enter the directory and make it!
+
+```
+git clone https://github.com/SamBouwer/any-docker
+cd any-docker
+make
+```
+
+This will build the followind docker images:
+
+- any-sync-coordinator
+- any-sync-node
+- any-sync-filenode
+- anytype-heart (work in progress)
+- anytype-ts (desktop clients; work in progress)
+- To be added: iOS client
+- to be added: Android client
+
 ## Build clients
+
+To do...
 
 ## Contribute
 
@@ -52,7 +65,7 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 
 ⚠️ Note: You will find many Id's and Keys in this repo, but those are often changing and only exposed locally on my machine, so its of little use to you :)
 
-### Prepare dev environment (to be scripted in `setup_dev_env.sh`
+### Prepare dev environment (to be scripted in `setup_dev_env.sh`)
 
 - Download and install go-1.19
   
