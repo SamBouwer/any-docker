@@ -34,6 +34,9 @@ services:
   any-sync-coordinator:
     container_name: any-sync-coordinator
     image: docker.io/sambouwer/any-sync-coordinator-docker:0.33.3
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.1
     ports:
       - "4830:4830" # coordinator
     restart: unless-stopped
@@ -46,6 +49,9 @@ services:
   any-sync-node:
     container_name: any-sync-node
     image: docker.io/sambouwer/any-sync-node-docker:0.33.3
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.2
     ports:
       - "4430:4430" # sync node
     restart: unless-stopped
@@ -58,6 +64,9 @@ services:
   any-sync-filenode:
     container_name: any-sync-filenode
     image: docker.io/sambouwer/any-sync-filenode-docker:0.33.3
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.3
     ports:
       - "4730:4730" # filenode
     restart: unless-stopped
@@ -81,3 +90,10 @@ services:
 volumes:
   s3:
   db:
+
+networks:
+  any-network:
+    ipam:
+      driver: bridge
+      config:
+        - subnet: "172.18.0.0/24"
