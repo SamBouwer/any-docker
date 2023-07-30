@@ -8,7 +8,7 @@ Aim: provide a simple to use all-in-one docker solution that runs an Anytype nod
 
 We want to offer a simple to use yet customizable option with just the Anytype "any-sync" and middleware infrastructure while running your own supporting infrastructure.
 
-Infra
+Infrastructure
 - [x] mongodb
 - [x] minio (s3 storage)
 - [x] redis
@@ -18,8 +18,16 @@ Any-sync
 - [x] any-sync-node
 - [x] any-sync-filenode
 
+Middleware libraries
+- [x] Desktop
+- [ ] Android 
+- [ ] iOS
+
 Clients 
 - [ ] Desktop
+  - [x] Windows 
+  - [x] Linux
+  - [] MacOS
 - [ ] Android 
 - [ ] iOS
 
