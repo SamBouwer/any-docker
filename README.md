@@ -10,18 +10,18 @@ We want to offer a simple to use yet customizable option with just the Anytype "
 
 Infra
 - [x] mongodb
-* minio (s3 storage)
-* redis
+- [x] minio (s3 storage)
+- [x] redis
 
 Any-sync
-* any-sync-coordinator
-* any-sync-node
-* any-sync-filenode
+- [x] any-sync-coordinator
+- [x] any-sync-node
+- [x] any-sync-filenode
 
 Clients 
-* Desktop
-* Android 
-* iOS
+- [ ] Desktop
+- [ ] Android 
+- [ ] iOS
 
 ## Run node in docker
 
