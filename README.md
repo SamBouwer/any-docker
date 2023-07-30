@@ -33,7 +33,7 @@ Clients
 
 ## Run node in docker
 
-You can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.env.example` files. 
+You can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yml` and `.env.example` files. 
 
 To get started:
 
