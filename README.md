@@ -27,7 +27,7 @@ Clients
 - [ ] Desktop
   - [x] Windows 
   - [x] Linux
-  - [] MacOS
+  - [ ] MacOS
 - [ ] Android 
 - [ ] iOS
 
