@@ -9,19 +9,23 @@ Aim: provide a simple to use all-in-one docker solution that runs an Anytype nod
 We want to offer a simple to use yet customizable option with just the Anytype "any-sync" and middleware infrastructure while running your own supporting infrastructure.
 
 Infra
-* mongodb
+- [x]mongodb
 * minio (s3 storage)
 * redis
 
 Any-sync
-* any-heart
 * any-sync-coordinator
 * any-sync-node
 * any-sync-filenode
 
+Clients 
+* Desktop
+* Android 
+* iOS
+
 ## Run node in docker
 
-You can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.evn.example` files. 
+You can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yaml` and `.env.example` files. 
 
 To get started:
 
