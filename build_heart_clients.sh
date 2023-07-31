@@ -2,6 +2,9 @@ echo -= Build anytype-heart and anytype-clients =-
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
+workdir=${PWD##*/}
+workdir=${workdir:-/}
+
 mkdir anytype
 cd anytype
 
@@ -33,7 +36,7 @@ sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "n
 mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 # Build any-heart including protobuf files and test dependencies
-cd anytype
+cd $workdir/anytype
 git clone https://github.com/anyproto/anytype-heart
 heart.yml .
 cd anytype/any-heart
