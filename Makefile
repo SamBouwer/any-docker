@@ -49,8 +49,8 @@ build-filenode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} --target ${IMAGENAME_FILENODE} .
 
 build-heart:
-	    @chmod -R 700 ./startup_heart.sh
-	    ./startup_filenode.sh
+	    @chmod -R 700 ./build_heart_clients.sh
+	    ./build_heart_clients.sh
 build-win:
 	    @docker 
 
