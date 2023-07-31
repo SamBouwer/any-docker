@@ -13,7 +13,7 @@ IMAGEFULLNAME_COORDINATOR=${REPO}/${IMAGENAME_COORDINATOR}:${ANYTYPE_VER}-${ANY_
 IMAGEFULLNAME_NODE=${REPO}/${IMAGENAME_NODE}:${ANYTYPE_VER}-${ANY_DOCKER_VER}
 IMAGEFULLNAME_FILENODE=${REPO}/${IMAGENAME_FILENODE}:${ANYTYPE_VER}-${ANY_DOCKER_VER}
 
-.PHONY: help build push all
+.PHONY: help pull build-coordinator build-node build-filenode push all all-push
 
 help:
 	    @echo "Makefile arguments:"
