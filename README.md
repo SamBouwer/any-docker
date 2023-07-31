@@ -76,7 +76,7 @@ make
 
 ## Build clients
 
-
+Run `make build-heart` to build the middleware libraries and Anytype clients. Clients will be in the "anytype" folder once done. 
 
 ## Build nodes
 
