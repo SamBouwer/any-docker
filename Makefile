@@ -33,6 +33,7 @@ help:
 	    @echo "push			Build image and push to docker.io (requires login)"
 	    @echo "all			[default] Build all images"
 	    @echo "all-push		Build and push all images"
+	    @echo "fix-git		Temporary action until I fix .gitignore"
 
 .DEFAULT_GOAL := all 
 
@@ -69,3 +70,8 @@ push:
 all: pull build-coordinator build-node build-filenode
 
 all-push: pull build-coordinator build-node build-filenode push
+
+fix-git:
+	    @git fetch
+	    @git reset --hard HEAD
+	    @git merge origin/main
