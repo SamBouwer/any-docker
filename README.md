@@ -44,7 +44,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
 
 You can do so by running
 
-```
+```bash
 apt update
 apt upgrade
 apt-get install -y git docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -56,7 +56,7 @@ apt-get install -y git docker-ce docker-ce-cli containerd.io docker-buildx-plugi
 
 To get started, clone this repository, enter the directory, and run your node including the required infrastructure in Docker compose using the `docker-compose-example.yml` and `.env.example` files:
 
-```
+```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
 docker-compose up -d
@@ -68,7 +68,7 @@ Congratulations! 🎉 You are now running your own Anytype Node!
 
 To actually use the mode, we need to build Anytype clients that can connect to this node, as the connection configuration is baked into the clients when the clients are built from source.
 
-```
+```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
 make
@@ -82,7 +82,7 @@ make
 
 You can skip this step of you just want to run nodes as provided in the docker images without further customization. If you want to build the any-docker images yourself, clone this repo, enter the directory and `make` it!
 
-```
+```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
 make
@@ -120,7 +120,7 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
   
   Add the following lines:
   
-  ```
+  ```bash
   export GOPATH=$HOME/go
   export GOROOT=/usr/local/go
   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
