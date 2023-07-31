@@ -25,7 +25,7 @@ help:
 	    @echo "build-coordinator 	Build coordinator only"
 	    @echo "build-node		Build node only"
 	    @echo "build-filenode 		Build filenode only"
-	    @echo "push			Build image and push to docker.io"
+	    @echo "push			Build image and push to docker.io (requires login)"
 	    @echo "all			[default] Build all images"
 	    @echo "all-push		Build and push all images"
 
