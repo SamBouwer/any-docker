@@ -18,9 +18,9 @@ set -eux; \
         rm -rf /var/lib/apt/lists/*
 
 cd /usr/lib/android-sdk
-wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
+wget -nc https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
 unzip -qo cmdtools.zip
-rm cmdtools.zip
+#rm cmdtools.zip
 cd cmdline-tools
 mkdir -p latest
 mv -n bin/ latest/
