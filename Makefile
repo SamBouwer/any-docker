@@ -24,7 +24,7 @@ help:
 	    @echo "pull			Pull latest from repo"
 	    @echo "build-coordinator 	Build coordinator only"
 	    @echo "build-node		Build node only"
-	    @echo "build-filenode 	Build filenode only"
+	    @echo "build-filenode 		Build filenode only"
 	    @echo "push			Push all buit images to docker"
 	    @echo "all			Build all images"
 	    @echo "all-push		Build and push all images"
