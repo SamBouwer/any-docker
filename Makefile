@@ -18,15 +18,15 @@ help:
 	    @echo "Makefile arguments:"
 	    @echo ""
 	    @echo "GOLANG_VER		Go version (default: 1.19)"
-	    @echo "ANYTYPE_VER	Anytype version (default: 0.33.3)"
+	    @echo "ANYTYPE_VER		Anytype version (default: 0.33.3)"
 	    @echo ""
 	    @echo "Makefile commands:"
 	    @echo "pull			Pull latest from repo"
 	    @echo "build-coordinator 	Build coordinator only"
 	    @echo "build-node		Build node only"
 	    @echo "build-filenode 		Build filenode only"
-	    @echo "push			Push all buit images to docker"
-	    @echo "all			(default) Build all images"
+	    @echo "push			Build image and push to docker.io"
+	    @echo "all			[default] Build all images"
 	    @echo "all-push		Build and push all images"
 
 .DEFAULT_GOAL := all 
