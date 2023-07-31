@@ -1,3 +1,5 @@
+#! /bin/bash
+
 echo -= Build anytype-heart and anytype-clients =-
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
