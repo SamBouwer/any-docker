@@ -7,7 +7,7 @@ ARG GOLANG_VER
 ## BUILD COORDINATOR ##
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
-MAINTAINER sam.bouwer@outlook.com
+MAINTAINER Sam Bouwer (bouwer.it)
 
 # ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
 
@@ -73,7 +73,7 @@ CMD ["/bin/bash","-c","./startup_coordinator.sh"]
 ## BUILD SYNC NODE ##
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-node
-MAINTAINER sam.bouwer@outlook.com
+MAINTAINER Sam Bouwer (bouwer.it)
 
 # Build any-sync-node
 WORKDIR /anytype
@@ -99,7 +99,7 @@ CMD ["/bin/bash","-c","./startup_node.sh"]
 ## BUILD SYNC FILENODE ##
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-filenode
-MAINTAINER sam.bouwer@outlook.com
+MAINTAINER Sam Bouwer (bouwer.it)
 
 # Build any-sync-filenode
 WORKDIR /anytype
@@ -119,62 +119,3 @@ COPY startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
 EXPOSE 4730
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
-
-
-## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
-
-FROM golang:$GOLANG_VER-bullseye as any-heart
-MAINTAINER sam.bouwer@outlook.com
-
-RUN set -eux; \
-        apt-get update; \
-        apt-get install -y --no-install-recommends \
-                git \
-                openssl \
-                protobuf-compiler \
-                libprotoc-dev \
-                android-sdk \
-                unzip \
-        ; \
-        rm -rf /var/lib/apt/lists/*
-
-RUN cd /usr/lib/android-sdk
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
-RUN unzip -q cmdtools.zip
-RUN cd cmdline-tools
-RUN mkdir latest
-RUN mv  bin/ latest/
-RUN export ANDROID_HOME=/usr/lib/android-sdk
-RUN export ANDROID_SDK_ROOT=/usr/lib/android-sdk
-RUN export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-RUN sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/bin --install "ndk;23.2.8568313"
-RUN mkdir /usr/lib/android-sdk/ndk-bundle
-RUN mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
-
-# Build any-heart inlcuding protobuf files and test dependencies
-WORKDIR /anytype
-RUN git clone https://github.com/anyproto/anytype-heart
-COPY heart.yml .
-WORKDIR /anytype/any-heart
-RUN make test-deps
-RUN make test
-RUN make setup-protoc
-RUN make protos
-RUN mkdir ../anytype-ts
-# RUN mkdir ../anytype-ts/dist
-# RUN mkdir ../anytype-ts/dist/lib
-RUN make install-dev-js ANY_SYNC_NETWORK=/anytype/heart.yml
-# I don't have a machine running MacOS so I cannot setup the deps for iOS
-#RUN make build-ios ANY_SYNC_NETWORK=/anytype/heart.yml
-# I can't get the Android version to properly build
-#RUN make build-android ANY_SYNC_NETWORK=/anytype/heart.yml
-RUN make protos-java
-
-WORKDIR /anytype/any-heart/anytype-ts
-RUN chmod +x any-heart
-
-# Run startup script
-WORKDIR /anytype
-COPY startup_heart.sh .
-RUN chmod -R 700 ./startup_heart.sh
-CMD ["/bin/bash","-c","./startup_heart.sh"]
