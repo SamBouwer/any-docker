@@ -21,13 +21,13 @@ help:
 	    @echo "ANYTYPE_VER - Anytype version (default: 0.33.3)"
 	    @echo ""
 	    @echo "Makefile commands:"
-	    @echo "pull to pull latest from repo"
-	    @echo "build-coordinator to  build coordinator only"
-	    @echo "build-node to build node only"
-	    @echo "build-filenode to build filenode only"
-	    @echo "push to push all buit images to docker"
-	    @echo "all to build all images"
-	    @echo "all-push to build and push all images"
+	    @echo "pull		Pull latest from repo"
+	    @echo "build-coordinator 	Build coordinator only"
+	    @echo "build-node		Build node only"
+	    @echo "build-filenode	Build filenode only"
+	    @echo "push			Push all buit images to docker"
+	    @echo "all			Build all images"
+	    @echo "all-push		Build and push all images"
 
 .DEFAULT_GOAL := all 
 
