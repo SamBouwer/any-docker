@@ -2,7 +2,7 @@ echo Build anytype-heart and anytype-clients
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
-makedir anytype
+mkdir anytype
 cd anytype
 
 set -eux; \
