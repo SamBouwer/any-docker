@@ -11,16 +11,16 @@ MAINTAINER sam.bouwer@outlook.com
 
 # ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
 
-ENV any-sync-coordinator-node-address=0.0.0.0:4830
-ENV mongo-connect-uri=mongodb://mongorootuser:mongorootpassword@mongo:27017
+ENV any-sync-coordinator-node-address=172.18.0.2:4830
+ENV mongo-connect-uri=mongodb://mongorootuser:mongorootpassword@172.18.0.6:27017
 ENV mongo-database-name=coordinator
-ENV any-sync-node-address=0.0.0.0:4430
-ENV any-sync-file-node-address=0.0.0.0:4730
-ENV s3-endpoint=http://0.0.0.0:9000
+ENV any-sync-node-address=172.18.0.3:4430
+ENV any-sync-file-node-address=172.18.0.4:4730
+ENV s3-endpoint=http://172.18.0.5:9000
 ENV s3-region=eu-central-1
 ENV s3-profile=default
 ENV s3-bucket=any-sync-files
-ENV redis-url=redis://redis_db:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
+ENV redis-url=redis://172.18.0.8:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2
 ENV is-cluster=false
 
 # Install dependencies
