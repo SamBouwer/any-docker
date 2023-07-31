@@ -26,7 +26,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
   - ⏳ Android 
   - ⏳ iOS
 
-- ⏳ Clients 
+⏳ Clients 
   - ⏳ Desktop
     - ✅ Windows 
     - ✅ Linux
