@@ -8,7 +8,7 @@ Community-maintained dockerized instance of an anytype node
 
 Aim: provide a simple to use yet customizable docker solution that runs an Anytype node and required infrastructure for development and testing.
 
-## Status
+## Project Status
 
 ✅ Infrastructure
   - ✅ mongodb (database)
