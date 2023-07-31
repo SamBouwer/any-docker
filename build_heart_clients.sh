@@ -30,7 +30,7 @@ export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
 cd
 mkdir -p /usr/lib/android-sdk/ndk-bundle
 sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
-#mv -n /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
+mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 # Build any-heart including protobuf files and test dependencies
 cd anytype
