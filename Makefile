@@ -20,12 +20,16 @@ help:
 	    @echo ""
 	    @echo "GOLANG_VER		Go version (default: 1.19)"
 	    @echo "ANYTYPE_VER		Anytype version (default: 0.33.3)"
+	    @echo "ANY_DOCKER_VER	Any-docker version (default: 1)"
 	    @echo ""
 	    @echo "Makefile commands:"
 	    @echo "pull			Pull latest from repo"
 	    @echo "build-coordinator 	Build coordinator only"
 	    @echo "build-node		Build node only"
 	    @echo "build-filenode 		Build filenode only"
+	    @echo "build-win		Build Windows client"
+	    @echo "build-linux		Build Linux client"
+	    @echo "build-macos		Build MacOS client"
 	    @echo "push			Build image and push to docker.io (requires login)"
 	    @echo "all			[default] Build all images"
 	    @echo "all-push		Build and push all images"
@@ -43,6 +47,15 @@ build-node:
 
 build-filenode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} --target ${IMAGENAME_FILENODE} .
+
+build-win:
+	    @docker 
+
+build-linux:
+	    @docker
+
+build-macos:
+	    @docker
 
 push:
 	    @docker login
