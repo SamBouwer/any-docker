@@ -42,7 +42,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
   * docker
   * docker-compose
 
-You can do so by running
+You can do so by running:
 
 ```bash
 apt update
