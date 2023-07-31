@@ -26,7 +26,7 @@ help:
 	    @echo "build-node		Build node only"
 	    @echo "build-filenode 		Build filenode only"
 	    @echo "push			Push all buit images to docker"
-	    @echo "all			Build all images"
+	    @echo "all			(default) Build all images"
 	    @echo "all-push		Build and push all images"
 
 .DEFAULT_GOAL := all 
