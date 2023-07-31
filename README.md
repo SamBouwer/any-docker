@@ -88,15 +88,11 @@ cd any-docker
 make
 ```
 
-This will build the followind docker images:
+This will build the following docker images:
 
 - any-sync-coordinator
 - any-sync-node
 - any-sync-filenode
-- anytype-heart (work in progress, not yet present in docker-compose.yaml)
-- anytype-ts (desktop clients; work in progress)
-- To be added: iOS client
-- to be added: Android client
 
 ## Contribute
 
