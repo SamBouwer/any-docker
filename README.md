@@ -1,41 +1,60 @@
 # any-docker
 
-⚠️ Note: this project is "work in progress" and is not yet ready for production use. It's actually not yet even ready for development use ;)
+Community-maintained dockerized instance of an anytype node
 
-Community-maintained dockerized all-in-one instance of an anytype node.
+> ⚠️ Note: this project is "work in progress" and is not yet ready for production use. It's actually not yet even ready for development use ;) (but I'm working on that!)
 
-Aim: provide a simple to use all-in-one docker solution that runs an Anytype node and required infrastructure for development and testing.
+> ⚠️ Disclaimer: I've tried to write the instructions below in such a way that as many people as possible can run their own Anytype node. This means it might be too verbose for your taste. In the case it is not clear enough, feel free to submit an Issue or submit a pull request 💌.
 
-We want to offer a simple to use yet customizable option with just the Anytype "any-sync" and middleware infrastructure while running your own supporting infrastructure.
+Aim: provide a simple to use yet customizable docker solution that runs an Anytype node and required infrastructure for development and testing.
 
-Infrastructure
-- [x] mongodb
-- [x] minio (s3 storage)
-- [x] redis
+## Status
 
-Any-sync
-- [x] any-sync-coordinator
-- [x] any-sync-node
-- [x] any-sync-filenode
+✅ Infrastructure
+  - ✅ mongodb (database)
+  - ✅ mongo_express (optional)
+  - ✅ minio (s3 file storage)
+  - ✅ redis (file cache)
 
-Middleware libraries
-- [x] Desktop
-- [ ] Android 
-- [ ] iOS
+✅ Any-sync
+  - ✅ any-sync-coordinator
+  - ✅ any-sync-node
+  - ✅ any-sync-filenode
 
-Clients 
-- [ ] Desktop
-  - [x] Windows 
-  - [x] Linux
-  - [ ] MacOS
-- [ ] Android 
-- [ ] iOS
+✅ Middleware libraries
+  - ✅ Desktop
+  - ⏳ Android 
+  - ⏳ iOS
+
+- ⏳ Clients 
+  - ⏳ Desktop
+    - ✅ Windows 
+    - ✅ Linux
+    - ⏳ MacOS
+  - ⏳ Android 
+  - ⏳ iOS
+
+## Prerequisites
+
+* In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu.
+* You need to have the following packages installed:
+  * git
+  * docker
+  * docker-compose
+
+You can do so by running
+
+```
+apt update
+apt upgrade
+apt-get install -y git docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+> ℹ️ Tip: install [portainer](https://www.portainer.io/) to easily manage your docker "stack" (portainer term for docker compose configuration) and see logs for troubleshooting.
 
 ## Run node in docker
 
-You can run the node along with the required infrastructure in Docker compose using the `docker-compose-example.yml` and `.env.example` files. 
-
-To get started:
+To get started, clone this repository, enter the directory, and run your node including the required infrastructure in Docker compose using the `docker-compose-example.yml` and `.env.example` files:
 
 ```
 git clone https://github.com/SamBouwer/any-docker
@@ -43,7 +62,21 @@ cd any-docker
 docker-compose up -d
 ```
 
-Congratulations! You are now running your own Anytype Node! To be able. To actually use the mode, we need to build Anytype clients that can connect to this node. 
+> ℹ️ Tip: run `git pull` when you want to pull the latest version of the repository to your local machine.
+
+Congratulations! 🎉 You are now running your own Anytype Node!
+
+To actually use the mode, we need to build Anytype clients that can connect to this node, as the connection configuration is baked into the clients when the clients are built from source.
+
+```
+git clone https://github.com/SamBouwer/any-docker
+cd any-docker
+make
+```
+
+## Build clients
+
+
 
 ## Build nodes
 
@@ -64,10 +97,6 @@ This will build the followind docker images:
 - anytype-ts (desktop clients; work in progress)
 - To be added: iOS client
 - to be added: Android client
-
-## Build clients
-
-To do...
 
 ## Contribute
 
