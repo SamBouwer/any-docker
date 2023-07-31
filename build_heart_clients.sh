@@ -1,4 +1,4 @@
-echo Build anytype-heart and anytype-clients
+echo -= Build anytype-heart and anytype-clients =-
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
@@ -19,14 +19,15 @@ set -eux; \
 
 cd /usr/lib/android-sdk
 wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
-unzip -q cmdtools.zip
+unzip -qo cmdtools.zip
+rm cmdtools.zip
 cd cmdline-tools
 mkdir latest
 mv  bin/ latest/
 export ANDROID_HOME=/usr/lib/android-sdk
 export ANDROID_SDK_ROOT=/usr/lib/android-sdk
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/bin --install "ndk;23.2.8568313"
+sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
 mkdir /usr/lib/android-sdk/ndk-bundle
 mv /opt/android-sdk/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
