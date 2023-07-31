@@ -22,7 +22,7 @@ wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_lat
 unzip -qo cmdtools.zip
 rm cmdtools.zip
 cd cmdline-tools
-mkdir latest
+mkdir -p latest
 mv  bin/ latest/
 export ANDROID_HOME=/usr/lib/android-sdk
 export ANDROID_SDK_ROOT=/usr/lib/android-sdk
