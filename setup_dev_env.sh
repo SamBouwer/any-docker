@@ -8,14 +8,12 @@ tar -C /usr/local -xzf /home/bouwers/go1.19.11.linux-amd64.tar.gz
 
 #Add directories to variables
 
-nano ~/.bashrc
-
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export ANDROID_SDK_ROOT=/usr/lib/android-sdk
-export ANDROID_HOME=/usr/lib/android-sdk
-export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH
+export GOPATH=$HOME/go >> ~/.bashrc
+export GOROOT=/usr/local/go >> ~/.bashrc
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin >> ~/.bashrc
+export ANDROID_SDK_ROOT=/usr/lib/android-sdk >> ~/.bashrc
+export ANDROID_HOME=/usr/lib/android-sdk >> ~/.bashrc
+export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH >> ~/.bashrc
 
 . ~/.bashrc
 
