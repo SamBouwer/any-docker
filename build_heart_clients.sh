@@ -41,12 +41,11 @@ mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/a
 cd $workdir/anytype-clients
 if [ ! -d "anytype-heart" ] ; then
     git clone https://github.com/anyproto/anytype-heart anytype-heart
+    cd anytype-heart
 else
     cd "anytype-heart"
-    git pull https://github.com/anyproto/anytype-heart
+    git pull
 fi
-git pull
-cd anytype-heart
 make test-deps
 make test
 make setup-protoc
