@@ -10,14 +10,11 @@ workdir=${workdir:-/}
 mkdir anytype-clients
 
 cd /usr/lib/android-sdk
-wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
-unzip -qo cmdtools.zip
-#rm cmdtools.zip
+sudo wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
+sudo unzip -qo cmdtools.zip
 cd cmdline-tools
-mkdir -p latest
-mv -n bin/ latest/
-
-cd
+sudo mkdir -p latest
+sudo mv -n bin/ latest/
 sudo mkdir -p /usr/lib/android-sdk/ndk-bundle
 sudo sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
 sudo mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
