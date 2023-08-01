@@ -14,7 +14,7 @@ services:
       - s3:/data
     restart: unless-stopped
     env_file:
-      - .env.example
+      - .env
       
   mongo_db:
     container_name: mongo_anytype
@@ -23,7 +23,7 @@ services:
       - db:/data/db
     restart: unless-stopped
     env_file:
-      - .env.example
+      - .env
       
   redis_db:
     container_name: redis_anytype
