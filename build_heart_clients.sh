@@ -43,6 +43,8 @@ else
 fi
 
 # Rebuild protobuf generated files
+# temp fix to resolve error when installing 
+go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
 make setup-protoc
 make protos
 
