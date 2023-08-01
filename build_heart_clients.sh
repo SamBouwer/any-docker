@@ -57,10 +57,10 @@ mkdir -p $workdir/anytype-clients/dist/android/pb
 make build-android ANY_SYNC_NETWORK=$workdir/heart.yml
 make protos-java
 
-# Build middleware library for iOS client
-mkdir -p $workdir/anytype-clients/dist/ios/pb
-make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
-make protos-swift
+# Build middleware library for iOS client, which cannot be done one Linux, see https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile
+#mkdir -p $workdir/anytype-clients/dist/ios/pb
+#make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
+#make protos-swift
 
 # Run tests
 make test-deps
