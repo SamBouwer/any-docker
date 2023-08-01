@@ -35,7 +35,7 @@ fi
 # Build any-heart including protobuf files and test dependencies
 cd $workdir/anytype-clients
 if [ ! -d "anytype-heart" ] ; then
-    git clone https://github.com/anyproto/anytype-heart anytype-heart
+    git clone https://github.com/anyproto/anytype-heart
     cd anytype-heart
 else
     cd "anytype-heart"
