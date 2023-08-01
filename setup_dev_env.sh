@@ -21,8 +21,6 @@ else
   echo "Installing 'go version go${GOLANG_VER} linux/amd64'"
 fi
 
-exit
-
 wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
 
 if [ -d "go1.19.11.linux-amd64.tar.gz" ] ; then
