@@ -4,7 +4,7 @@ echo -= Build anytype-heart and anytype-clients =-
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
-workdir=${PWD##*/}
+workdir=${PWD}
 workdir=${workdir:-/}
 
 mkdir anytype
