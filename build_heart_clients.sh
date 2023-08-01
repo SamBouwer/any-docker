@@ -8,7 +8,7 @@ workdir=${workdir:-/}
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
-mkdir anytype-clients
+mkdir -p anytype-clients
 
 # Install Android SDK and cmdtools
 cd /usr/lib/android-sdk
@@ -31,6 +31,10 @@ else
     git pull
 fi
 
+# Rebuild protobuf generated files
+make setup-protoc
+make protos
+
 # Build middleware library for Desktop client
 mkdir -p $workdir/anytype-clients/anytype-ts
 make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
@@ -44,10 +48,6 @@ make protos-java
 mkdir -p $workdir/anytype-clients/dist/ios/pb
 make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
 make protos-swift
-
-# Rebuild protobuf generated files
-make setup-protoc
-make protos
 
 # Run tests
 make test-deps
