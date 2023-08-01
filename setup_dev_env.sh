@@ -17,17 +17,18 @@ export ANDROID_SDK_ROOT=/usr/lib/android-sdk >> ~/.bashrc
 export ANDROID_HOME=/usr/lib/android-sdk >> ~/.bashrc
 export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH >> ~/.bashrc
 
-. ~/.bashrc
+source ~/.bashrc
 
 go version
+echo $'\U2191'
+echo "go version printed above should return 'go version go1.19.11 linux/amd64'"
+read -p "Press Enter if the go version is correct or CTRL+C to cancel" </dev/tty
 
-echo "go version should return 'go version go1.19.11 linux/amd64'"
-
-dpkg --add-architecture i386 
+sudo dpkg --add-architecture i386 
 
 set -eux; \
-        apt-get update; \
-        apt-get install -y --no-install-recommends \
+        sudo apt-get update; \
+        sudo apt-get install -y --no-install-recommends \
                 git \
                 openssl \
                 protobuf-compiler \
@@ -45,4 +46,4 @@ set -eux; \
                 docker-buildx-plugin \
                 docker-compose-plugin \
         ; \
-        rm -rf /var/lib/apt/lists/*
+        sudo rm -rf /var/lib/apt/lists/*
