@@ -1,7 +1,7 @@
 #! /bin/bash
-
-echo -= Build anytype-heart and anytype-clients =-
-
+echo ""
+echo -=[ Building anytype-heart and anytype-clients ]=-
+echo ""
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
 workdir=${PWD}
