@@ -51,10 +51,25 @@ To get started, clone this repository, enter the directory, and run your node in
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
-docker compose up -d 
+docker compose up -d
 ```
 
 > ℹ️ Tip: run `git pull` when you want to pull the latest version of the repository to your local machine.
+
+You should now see something similar to this:
+
+```shell
+[+] Running 9/9
+ ✔ Network any-docker_any-network  Created
+ ✔ Volume "any-docker_s3"          Created
+ ✔ Volume "any-docker_db"          Created
+ ✔ Container mongo_anytype         Started
+ ✔ Container any-sync-coordinator  Started
+ ✔ Container any-sync-node         Started
+ ✔ Container any-sync-filenode     Started
+ ✔ Container minio_anytype         Started
+ ✔ Container redis_anytype         Started
+```
 
 Congratulations! 🎉 You are now running your own Anytype Node!
 
