@@ -12,7 +12,11 @@ do
         v) GOLANG_VER=${OPTARG};;
     esac
 done
-echo "GOLANG VERSION: $GOLANG_VER";
+
+GOLANG_VER_INSTALLED=$(go version)
+if [ GOLANG_VER_INSTALLED = "go version go${GOLANG_VER} linux/amd64" ] then
+  echo "Go is already installed, skipping"
+fi
 
 wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
 
@@ -30,11 +34,6 @@ export ANDROID_HOME=/usr/lib/android-sdk >> ~/.bashrc
 export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH >> ~/.bashrc
 
 source ~/.bashrc
-
-go version
-echo $'\U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191'
-echo "go version printed above should return 'go version go${GOLANG_VER} linux/amd64'"
-read -p "Press Enter if the go version is correct or CTRL+C to cancel" </dev/tty
 
 sudo dpkg --add-architecture i386 
 
