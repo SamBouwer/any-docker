@@ -14,15 +14,23 @@ do
 done
 
 GOLANG_VER_INSTALLED=$(go version)
+
+echo ${GOLANG_VER_INSTALLED}
+
 if [ GOLANG_VER_INSTALLED = "go version go${GOLANG_VER} linux/amd64" ] then
   echo "Go is already installed, skipping"
+else
+  echo "Installing Go"
 fi
+
+exit
 
 wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
 
 if [ -d "go1.19.11.linux-amd64.tar.gz" ] ; then
   tar -C /usr/local -xzf /home/bouwers/go${GOLANG_VER}.linux-amd64.tar.gz
 fi
+
 
 #Add directories to variables
 
