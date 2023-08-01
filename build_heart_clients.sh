@@ -1,6 +1,6 @@
 #! /bin/bash
 echo ""
-echo -=[ Building anytype-heart and anytype-clients ]=-
+echo "-=[ Setting up development environment for building anytype nodes and clients ]=-"
 echo ""
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
