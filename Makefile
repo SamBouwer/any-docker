@@ -44,7 +44,7 @@ pull:
 	    @git pull
 
 setup-dev-env:
-	    ./setup_dev_env.sh GOLANG_VER=$GOLANG_VER
+	    ./setup_dev_env.sh -v ${GOLANG_VER}
 
 build-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
