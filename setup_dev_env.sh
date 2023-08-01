@@ -20,7 +20,7 @@ export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH >> ~/.bashrc
 source ~/.bashrc
 
 go version
-echo $'\U2191'
+echo $'\U2191 \U2191 \U2191 \U2191 \U2191 \U2191'
 echo "go version printed above should return 'go version go1.19.11 linux/amd64'"
 read -p "Press Enter if the go version is correct or CTRL+C to cancel" </dev/tty
 
