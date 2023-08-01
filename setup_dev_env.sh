@@ -8,13 +8,12 @@ do
         v) GOLANG_VER=${OPTARG};;
     esac
 done
-echo "GOLANG_VER: $GOLANG_VER";
+echo "GOLANG VERSION: $GOLANG_VER";
 
-pause
-wget -N https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
+wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
 
 if [ -d "go1.19.11.linux-amd64.tar.gz" ] ; then
-  tar -C /usr/local -xzf /home/bouwers/go1.19.11.linux-amd64.tar.gz
+  tar -C /usr/local -xzf /home/bouwers/go${GOLANG_VER}.linux-amd64.tar.gz
 fi
 
 #Add directories to variables
@@ -30,7 +29,7 @@ source ~/.bashrc
 
 go version
 echo $'\U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191 \U2191'
-echo "go version printed above should return 'go version go1.19.11 linux/amd64'"
+echo "go version printed above should return 'go version go${GOLANG_VER} linux/amd64'"
 read -p "Press Enter if the go version is correct or CTRL+C to cancel" </dev/tty
 
 sudo dpkg --add-architecture i386 
