@@ -73,6 +73,10 @@ You should now see something similar to this:
 
 Congratulations! 🎉 You are now running your own Anytype Node!
 
+To stop the node again, run:
+
+`docker compose down`
+
 To actually use the mode, we need to build Anytype clients that can connect to this node, as the connection configuration is baked into the clients when the clients are built from source.
 
 ```bash
