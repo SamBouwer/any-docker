@@ -42,15 +42,19 @@ else
     git pull
 fi
 
-# Rebuild protobuf generated files
-# temp fix to resolve error when installing 
-go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
-make setup-protoc
-make protos
+# Build Android
+git clone https://github.com/anyproto/anytype-kotlin
+cd anytype-kotlin
+touch github.properties
+echo 'gpr.usr=GITHUB_USER_ID' >> github.properties
+echo 'gpr.key=GITHUB_PERSONAL_ACCESS_TOKEN' >> github.properties
 
-# Build middleware library for Desktop client
-mkdir -p $workdir/anytype-clients/anytype-ts
-make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
+#Replace keys with actual keys, preferanbly as input vars of the script
+touch apikeys.properties
+echo 'amplitude.debug="AMPLITUDE_DEBUG_KEY"' >> apikeys.properties
+echo 'amplitude.release="AMPLITUDE_RELEASE_KEY"' >> apikeys.properties
+echo 'sentry_dsn="SENTRY_DSN_KEY"' >> apikeys.properties
+
 
 # Build middleware library for Android client
 mkdir -p $workdir/anytype-clients/dist/android/pb
@@ -62,19 +66,21 @@ make protos-java
 #make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
 #make protos-swift
 
-# Run tests
-#make test-deps
-#make test
-
-#export ANYTYPE_TEST_GRPC_PORT=31088
-#docker compose up -d
-#make test-integration
-
 # Build Desktop client
 cd $workdir/anytype-clients
 git clone https://github.com/anyproto/anytype-ts
 cd anytype-ts
 npm install -D
+
+# Rebuild protobuf generated files
+# temp fix to resolve error when installing 
+go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
+make setup-protoc
+make protos
+# Build middleware library for Desktop client
+mkdir -p $workdir/anytype-clients/anytype-ts
+make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
+
 npm run dist:win
 npm run dist:linux
 SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
