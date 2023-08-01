@@ -76,17 +76,6 @@ services:
       context: .
       target: any-sync-filenode
 
-  any-heart:
-    container_name: any-heart
-    image: docker.io/sambouwer/any-heart:0.33.3-1
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
-    build:
-      context: .
-      target: any-heart
-
-
 volumes:
   s3:
   db:
