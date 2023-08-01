@@ -1,6 +1,6 @@
 #! /bin/bash
 echo ""
-echo "-=[ Setting up development environment for building anytype nodes and clients ]=-"
+echo "-=[ Building Anytype middleware and clients ]=-"
 echo ""
 
 workdir=${PWD}
@@ -75,4 +75,6 @@ cd $workdir/anytype-clients
 git clone https://github.com/anyproto/anytype-ts
 cd anytype-ts
 npm install -D
-
+npm run dist:win
+npm run dist:linux
+SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
