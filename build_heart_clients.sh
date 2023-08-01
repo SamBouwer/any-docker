@@ -2,13 +2,15 @@
 echo ""
 echo "-=[ Setting up development environment for building anytype nodes and clients ]=-"
 echo ""
-## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
 workdir=${PWD}
 workdir=${workdir:-/}
 
+## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
+
 mkdir anytype-clients
 
+# Install Android SDK and cmdtools
 cd /usr/lib/android-sdk
 sudo wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
 sudo unzip -qo cmdtools.zip
@@ -28,16 +30,28 @@ else
     cd "anytype-heart"
     git pull
 fi
-make test-deps
-make test
+
+# Build middleware library for Desktop client
+mkdir -p $workdir/anytype-clients/anytype-ts
+make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
+
+# Build middleware library for Android client
+mkdir -p $workdir/anytype-clients/dist/android/pb
+make build-android ANY_SYNC_NETWORK=$workdir/heart.yml
+make protos-java
+
+# Build middleware library for iOS client
+mkdir -p $workdir/anytype-clients/dist/ios/pb
+make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
+make protos-swift
+
+# Rebuild protobuf generated files
 make setup-protoc
 make protos
-mkdir -p $workdir/anytype-clients/anytype-ts
-#mkdir ../anytype-ts/dist
-#mkdir ../anytype-ts/dist/lib
-make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
-# I don't have a machine running MacOS so I cannot setup the deps for iOS
-#make build-ios ANY_SYNC_NETWORK=/anytype/heart.yml
-# I can't get the Android version to properly build
-#make build-android ANY_SYNC_NETWORK=/anytype/heart.yml
-make protos-java
+
+# Run tests
+make test-deps
+make test
+export ANYTYPE_TEST_GRPC_PORT=31088
+docker-compose up -d
+make test-integration
