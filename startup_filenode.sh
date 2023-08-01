@@ -10,7 +10,11 @@
 # echo -e "\r"
 # echo -e "\r"
 # echo -e "redis://redis:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2\r"
-echo starting any-sync-filenode...
+
+echo ""
+echo "-=[ starting any-sync-filenode... ]=-"
+echo ""
+
 /anytype/any-sync-filenode/bin/any-sync-filenode -c file_1.yml & 
 echo any-sync-filenode is running
 
