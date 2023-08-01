@@ -1,4 +1,4 @@
-# Note: this Dockerfile installs all dependencies, including packages like Android SDK to be able to build the docker images.
+# Note: this Dockerfile installs all dependencies to build the docker images required to run an Anytype node
 # TODO
 # * Use any-sync-tool with Dockerfile ARG's from ENV file to create any-sync-network yaml configuration files
 
