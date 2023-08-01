@@ -91,7 +91,7 @@ This will build the following docker images:
 
 ## Contribute
 
-I'm building a Dockerfile based on the instructions as posted here: https://tech.anytype.io/how-to/self-hosting
+I'm building a Dockerfile and supporting scripts and files based on the instructions as posted here: https://tech.anytype.io/how-to/self-hosting
 
 As building Anytype nodes and clients from source for selfhosting is new, and I am personally new to building docker images, any help is welcome!
 
