@@ -16,6 +16,7 @@ IMAGEFULLNAME_FILENODE=${REPO}/${IMAGENAME_FILENODE}:${ANYTYPE_VER}-${ANY_DOCKER
 .PHONY: help pull build-coordinator build-node build-filenode push all all-push
 
 help:
+	    @echo ""
 	    @echo "Makefile arguments:"
 	    @echo ""
 	    @echo "GOLANG_VER		Go version (default: 1.19)"
@@ -43,7 +44,7 @@ pull:
 	    @git pull
 
 setup-dev-env:
-	    ./setup_dev_env.sh
+	    ./setup_dev_env.sh GOLANG_VER=$GOLANG_VER
 
 build-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
