@@ -39,5 +39,10 @@ set -eux; \
                 jq \
                 wine \
                 wine32 \
+                docker-ce \
+                docker-ce-cli \
+                containerd.io \
+                docker-buildx-plugin \
+                docker-compose-plugin \
         ; \
         rm -rf /var/lib/apt/lists/*
