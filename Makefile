@@ -24,6 +24,7 @@ help:
 	    @echo ""
 	    @echo "Makefile commands:"
 	    @echo "pull			Pull latest from repo"
+	    @echo "setup-dev-env 	Setup development environent (install packages and dependencies"
 	    @echo "build-coordinator 	Build coordinator only"
 	    @echo "build-node		Build node only"
 	    @echo "build-filenode 		Build filenode only"
@@ -40,6 +41,9 @@ help:
 pull:
 	    @git pull
 
+setup-dev-env:
+	    ./setup_dev_env.sh
+
 build-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
 
@@ -50,7 +54,6 @@ build-filenode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} --target ${IMAGENAME_FILENODE} .
 
 build-heart:
-	    @chmod -R 700 ./build_heart_clients.sh
 	    ./build_heart_clients.sh
 build-win:
 	    @docker 
