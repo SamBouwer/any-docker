@@ -53,5 +53,5 @@ make protos
 make test-deps
 make test
 export ANYTYPE_TEST_GRPC_PORT=31088
-docker-compose up -d
+docker compose up -d
 make test-integration
