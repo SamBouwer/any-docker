@@ -51,7 +51,7 @@ To get started, clone this repository, enter the directory, and run your node in
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
-docker-compose up -d
+docker compose up -d 
 ```
 
 > ℹ️ Tip: run `git pull` when you want to pull the latest version of the repository to your local machine.
