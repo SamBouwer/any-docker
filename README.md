@@ -75,7 +75,9 @@ Congratulations! 🎉 You are now running your own Anytype Node!
 
 To stop the node again, run:
 
-`docker compose down`
+```bash
+docker compose down
+```
 
 To actually use the mode, we need to build Anytype clients that can connect to this node, as the connection configuration is baked into the clients when the clients are built from source.
 
@@ -87,7 +89,13 @@ make
 
 ## Build clients
 
-Run `make build-heart` to build the middleware libraries and Anytype clients. Clients will be in the "anytype" folder once done. 
+To build the middleware libraries and Anytype clients, run:
+
+```bash
+make build-heart
+```
+
+Clients will be in the "anytype" folder once done. 
 
 ## Build nodes
 
