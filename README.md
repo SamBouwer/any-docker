@@ -36,18 +36,13 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
 
 ## Prerequisites (to be scripted in setup_dev_env.sh) 
 
-* In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu.
-* You need to have the following packages installed:
-  * git
-  * docker
-  * docker-compose
+* In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu with `git` installed.
 
-You can do so by running:
+You can install `git` running:
 
 ```bash
-apt update
-apt upgrade
-apt-get install -y git docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt update && apt upgrade
+apt-get install -y git
 ```
 
 > ℹ️ Tip: install [portainer](https://www.portainer.io/) to easily manage your docker "stack" (portainer term for docker compose configuration) and see logs for troubleshooting.
