@@ -39,8 +39,11 @@ mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/a
 
 # Build any-heart including protobuf files and test dependencies
 cd $workdir/anytype-clients
-if ! git clone "https://github.com/anyproto/anytype-heart" "anytype-heart" 2>/dev/null && [ -d "anytype-heart" ] ; then
-    echo "Clone failed because the folder ${folder} exists"
+if [ ! -d "anytype-heart" ] ; then
+    git clone https://github.com/anyproto/anytype-heart anytype-heart
+else
+    cd "anytype-heart"
+    git pull https://github.com/anyproto/anytype-heart
 fi
 git pull
 cd anytype-heart
