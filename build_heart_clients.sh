@@ -8,19 +8,6 @@ workdir=${PWD}
 workdir=${workdir:-/}
 
 mkdir anytype-clients
-cd anytype-clients
-
-set -eux; \
-        apt-get update; \
-        apt-get install -y --no-install-recommends \
-                git \
-                openssl \
-                protobuf-compiler \
-                libprotoc-dev \
-                android-sdk \
-                unzip \
-        ; \
-        rm -rf /var/lib/apt/lists/*
 
 cd /usr/lib/android-sdk
 wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip -O cmdtools.zip
