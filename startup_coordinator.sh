@@ -10,7 +10,10 @@
 # echo -e "\r"
 # echo -e "\r"
 # echo -e "redis://redis:6379/?dial_timeout=3&db=1&read_timeout=6s&max_retries=2\r"
-echo starting any-sync-coordinator...
+
+echo ""
+echo "-=[ starting any-sync-coordinator... ]=-"
+echo ""
 /anytype/any-sync-coordinator/bin/any-sync-coordinator -c coordinator.yml &
 echo any-sync-coordinator is running
 
