@@ -17,15 +17,20 @@ if [ ! -d "cmdline-tools" ] ; then
     echo "unzipping cmdtools"
     sudo unzip -qo commandlinetools-linux-9477386_latest.zip
     sudo rm commandlinetools-linux-9477386_latest.zip
+    cd cmdline-tools
+    sudo mkdir -p latest
+    sudo mv -n bin/ latest/
 else
     echo "'cmdline-tools' already installed. Skipping..."
 fi
-cd cmdline-tools
-sudo mkdir -p latest
-sudo mv -n bin/ latest/
-sudo mkdir -p /usr/lib/android-sdk/ndk-bundle
-sudo sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
-sudo mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
+if [ ! -d "/usr/lib/android-sdk/ndk-bundle/23.2.8568313" ] ; then
+    echo "Installing ndk-bundle"
+    sudo mkdir -p /usr/lib/android-sdk/ndk-bundle
+    sudo sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
+    sudo mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
+else
+    echo "ndk-bundle already installed. Skipping..."
+fi
 
 # Build any-heart including protobuf files and test dependencies
 cd $workdir/anytype-clients
