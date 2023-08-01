@@ -26,7 +26,8 @@ exit
 wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
 
 if [ -d "go1.19.11.linux-amd64.tar.gz" ] ; then
-  tar -C /usr/local -xzf /home/bouwers/go${GOLANG_VER}.linux-amd64.tar.gz
+  tar -C /usr/local -xzf $HOME/go${GOLANG_VER}.linux-amd64.tar.gz
+  rm go1.19.11.linux-amd64.tar.gz
 fi
 
 
