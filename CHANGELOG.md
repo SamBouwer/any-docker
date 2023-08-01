@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2023-08-01
+
+### Added
+* Added startup_dev_env.sh script to easily install all required dependencies for building your nodes and clients
+
 ## [0.0.3] - 2023-07-29
 
 ### Added
