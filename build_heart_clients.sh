@@ -12,8 +12,14 @@ mkdir -p anytype-clients
 
 # Install Android SDK and cmdtools
 cd /usr/lib/android-sdk
-sudo wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
-sudo unzip -qo commandlinetools-linux-9477386_latest.zip
+if [ ! -d "cmdline-tools" ] ; then
+    sudo wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+    echo "unzipping cmdtools"
+    sudo unzip -qo commandlinetools-linux-9477386_latest.zip
+    sudo rm commandlinetools-linux-9477386_latest.zip
+else
+    echo "'cmdline-tools' already installed. Skipping..."
+fi
 cd cmdline-tools
 sudo mkdir -p latest
 sudo mv -n bin/ latest/
