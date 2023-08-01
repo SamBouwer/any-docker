@@ -16,9 +16,9 @@ done
 GOLANG_VER_INSTALLED=$(go version)
 
 echo ${GOLANG_VER_INSTALLED}
-echo go version go${GOLANG_VER} linux/amd64
+echo "go version go${GOLANG_VER} linux/amd64"
 
-if [ GOLANG_VER_INSTALLED = go version go${GOLANG_VER} linux/amd64 ] ; then
+if [ GOLANG_VER_INSTALLED == "go version go${GOLANG_VER} linux/amd64" ] ; then
   echo "Go is already installed, skipping"
 else
   echo "Installing Go"
