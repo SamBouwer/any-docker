@@ -18,9 +18,9 @@ mkdir -p latest
 mv -n bin/ latest/
 
 cd
-mkdir -p /usr/lib/android-sdk/ndk-bundle
-sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
-mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
+sudo mkdir -p /usr/lib/android-sdk/ndk-bundle
+sudo sdkmanager --sdk_root=/usr/lib/android-sdk/cmdline-tools/latest/bin --install "ndk;23.2.8568313"
+sudo mv -n /usr/lib/android-sdk/cmdline-tools/latest/bin/ndk/23.2.8568313/ /usr/lib/android-sdk/ndk-bundle/
 
 # Build any-heart including protobuf files and test dependencies
 cd $workdir/anytype-clients
