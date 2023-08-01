@@ -35,10 +35,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
   - ❌ iOS (can only be built on MacOS, which I currently don't have)
 
 ## Prerequisites 
-
-* In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu with `git` installed.
-
-You can install `git` running:
+In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu with `git` installed. You can install `git` running:
 
 ```bash
 apt update && apt upgrade
