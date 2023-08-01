@@ -2,6 +2,8 @@
 # This script installs all packages and dependencies required to build Anytype nodes and clients. 
 # Run this script at least once before using the scripts or make commands to build your own nodes and/or clients.
 
+echo "${$1}"
+pause
 wget -N https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
 
 if [ -d "go1.19.11.linux-amd64.tar.gz" ] ; then
