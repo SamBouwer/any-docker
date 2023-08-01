@@ -23,8 +23,9 @@ help:
 	    @echo "ANY_DOCKER_VER	Any-docker version (default: 1)"
 	    @echo ""
 	    @echo "Makefile commands:"
-	    @echo "pull			Pull latest from repo"
+	    @echo "pull			Pull latest from repository"
 	    @echo "setup-dev-env 	Setup development environent (install packages and dependencies"
+	    @echo "build-heart		Build middleware and clients"
 	    @echo "build-coordinator 	Build coordinator only"
 	    @echo "build-node		Build node only"
 	    @echo "build-filenode 		Build filenode only"
@@ -55,6 +56,7 @@ build-filenode:
 
 build-heart:
 	    ./build_heart_clients.sh
+
 build-win:
 	    @docker 
 
