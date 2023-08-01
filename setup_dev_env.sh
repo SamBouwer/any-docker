@@ -31,12 +31,11 @@ fi
 
 #Add directories to variables
 
-export GOPATH=$HOME/go >> ~/.bashrc
-export GOROOT=/usr/local/go >> ~/.bashrc
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin >> ~/.bashrc
-export ANDROID_SDK_ROOT=/usr/lib/android-sdk >> ~/.bashrc
-export ANDROID_HOME=/usr/lib/android-sdk >> ~/.bashrc
-export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH >> ~/.bashrc
+echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.bashrc
+echo 'export ANDROID_SDK_ROOT=/usr/lib/android-sdk' >> ~/.bashrc
+echo 'export ANDROID_HOME=/usr/lib/android-sdk' >> ~/.bashrc
+echo 'export PATH=$ANDROID_HOME/cmdline-tools/bin:$PATH' >> ~/.bashrc
 
 source ~/.bashrc
 
