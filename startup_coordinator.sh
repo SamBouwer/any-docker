@@ -14,6 +14,7 @@
 echo ""
 echo "-=[ starting any-sync-coordinator... ]=-"
 echo ""
+
 /anytype/any-sync-coordinator/bin/any-sync-coordinator -c coordinator.yml &
 echo any-sync-coordinator is running
 
