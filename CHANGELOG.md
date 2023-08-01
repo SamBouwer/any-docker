@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Added startup_dev_env.sh script to easily install all required dependencies for building your nodes and clients
 
+### Improved
+* Migrated as much logic to the startup_dev_env.sh script to have all dependencies installed from there, leaving less room for depencency issues when running the other individual scripts
+
 ## [0.0.3] - 2023-07-29
 
 ### Added
