@@ -34,7 +34,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
   - ⏳ Android 
   - ❌ iOS (can only be built on MacOS, which I currently don't have)
 
-## Prerequisites (to be scripted in setup_dev_env.sh) 
+## Prerequisites 
 
 * In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu with `git` installed.
 
