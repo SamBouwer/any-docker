@@ -2,6 +2,10 @@
 # This script installs all packages and dependencies required to build Anytype nodes and clients. 
 # Run this script at least once before using the scripts or make commands to build your own nodes and/or clients.
 
+echo ""
+echo "-=[ Setting up development environment for building anytype nodes and clients ]=-"
+echo ""
+
 while getopts v: flag
 do
     case "${flag}" in
