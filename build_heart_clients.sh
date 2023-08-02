@@ -44,8 +44,15 @@ fi
 
 # Build Desktop client
 cd $workdir/anytype-clients
-git clone https://github.com/anyproto/anytype-ts
-cd anytype-ts
+if [ ! -d "anytype-ts" ] ; then
+    echo "Cloning anytype-ts repository..."
+    git clone https://github.com/anyproto/anytype-ts
+    cd anytype-ts
+else
+    echo "Pulling latest anytype-ts repository..."
+    cd "anytype-ts"
+    git pull
+fi
 npm install -D
 
 # Rebuild protobuf generated files
