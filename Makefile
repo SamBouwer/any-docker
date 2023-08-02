@@ -24,10 +24,10 @@ help:
 	    @echo "ANY_DOCKER_VER	Any-docker version (default: 1)"
 	    @echo ""
 	    @echo "Makefile commands:"
-	    @echo "pull			Pull latest from repository"
-	    @echo "setup-dev-env 	Setup development environent (install packages and dependencies), only needs to be run once"
-	    @echo "build-node-all		Build all node images"
-	    @echo "build-node-coordinator 	Build coordinator only"
+	    @echo "pull					Pull latest from repository"
+	    @echo "setup-dev-env 			Setup development environent (install packages and dependencies), only needs to be run once"
+	    @echo "build-node-all			Build all node images"
+	    @echo "build-node-coordinator 		Build coordinator only"
 	    @echo "build-node-syncnode		Build sync node only"
 	    @echo "build-node-filenode 		Build filenode only"
 	    @echo "build-client-heart		Build middleware and clients"
@@ -35,9 +35,9 @@ help:
 	    @echo "build-client-linux		Build Linux client"
 	    @echo "build-client-macos		Build MacOS client"
 	    @echo "build-client-all		Build MacOS client"
-	    @echo "push			Build image and push to docker.io (requires login)"
-	    @echo "all			[default] Build all images and clients"
-	    @echo "all-push		Build and push all images and clients"
+	    @echo "push				Build image and push to docker.io (requires login)"
+	    @echo "all				[default] Build all images and clients"
+	    @echo "all-push			Build and push all images and clients"
 
 .DEFAULT_GOAL := all
 
