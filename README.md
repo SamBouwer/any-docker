@@ -99,7 +99,7 @@ You can skip this step of you just want to run nodes as provided in the docker i
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
-make
+make build-node-all
 ```
 
 > ℹ️ Tip: run `make help` to see all make options
