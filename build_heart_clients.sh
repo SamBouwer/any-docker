@@ -73,6 +73,7 @@ echo 'amplitude.debug="AMPLITUDE_DEBUG_KEY"' >> apikeys.properties
 echo 'amplitude.release="AMPLITUDE_RELEASE_KEY"' >> apikeys.properties
 echo 'sentry_dsn="SENTRY_DSN_KEY"' >> apikeys.properties
 
+gradle build
 
 # Build middleware library for Android client
 mkdir -p $workdir/anytype-clients/dist/android/pb
@@ -101,4 +102,7 @@ make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
 
 npm run dist:win
 npm run dist:linux
-SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
+#npm run dist:mac
+
+SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev
+#SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
