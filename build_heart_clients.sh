@@ -56,9 +56,9 @@ else
     git pull
 fi
 
-read -p "Github User Id: " GITHUB_USERNAME
-echo "Looking up github Id for $GITHUB_USERNAME"
-GITHUB_USER_ID=$(wget -O - 'https://api.github.com/users/${GITHUB_USERNAME})' | grep -Po '"id": \K[[:digit:]]+,')
+read -p "Github User Id: " GITHUBUSERNAME
+echo "Looking up github Id for $GITHUBUSERNAME"
+GITHUB_USER_ID=$(wget -O - 'https://api.github.com/users/${GITHUBUSERNAME}' | grep -Po '"id": \K[[:digit:]]+,')
 echo $GITHUB_USER_ID
 read -p "wait"
 read -p "Github PAT "
