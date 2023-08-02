@@ -25,19 +25,21 @@ help:
 	    @echo ""
 	    @echo "Makefile commands:"
 	    @echo "pull			Pull latest from repository"
-	    @echo "setup-dev-env 	Setup development environent (install packages and dependencies"
-	    @echo "build-heart		Build middleware and clients"
-	    @echo "build-coordinator 	Build coordinator only"
-	    @echo "build-node		Build node only"
-	    @echo "build-filenode 		Build filenode only"
-	    @echo "build-win		Build Windows client"
-	    @echo "build-linux		Build Linux client"
-	    @echo "build-macos		Build MacOS client"
+	    @echo "setup-dev-env 	Setup development environent (install packages and dependencies), only needs to be run once"
+	    @echo "build-node-all		Build all node images"
+	    @echo "build-node-coordinator 	Build coordinator only"
+	    @echo "build-node-syncnode		Build sync node only"
+	    @echo "build-node-filenode 		Build filenode only"
+	    @echo "build-client-heart		Build middleware and clients"
+	    @echo "build-client-win		Build Windows client"
+	    @echo "build-client-linux		Build Linux client"
+	    @echo "build-client-macos		Build MacOS client"
+	    @echo "build-client-all		Build MacOS client"
 	    @echo "push			Build image and push to docker.io (requires login)"
-	    @echo "all			[default] Build all images"
-	    @echo "all-push		Build and push all images"
+	    @echo "all			[default] Build all images and clients"
+	    @echo "all-push		Build and push all images and clients"
 
-.DEFAULT_GOAL := all 
+.DEFAULT_GOAL := all
 
 pull:
 	    @git pull
@@ -45,26 +47,28 @@ pull:
 setup-dev-env:
 	    ./setup_dev_env.sh -v ${GOLANG_VER}
 
-build-coordinator:
+build-client-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
 
-build-node:
+build-client-node:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_NODE} --target ${IMAGENAME_NODE} .
 
-build-filenode:
+build-client-filenode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} --target ${IMAGENAME_FILENODE} .
 
-build-heart:
+build-client-heart:
 	    ./build_heart_clients.sh
 
-build-win:
+build-client-win:
 	    @docker 
 
-build-linux:
+build-client-linux:
 	    @docker
 
-build-macos:
+build-client-macos:
 	    @docker
+
+build-client-all: build-client-win build-client-linux build-client-macos
 
 push:
 	    @docker login
@@ -72,6 +76,6 @@ push:
 	    @docker push ${IMAGEFULLNAME_NODE}
 	    @docker push ${IMAGEFULLNAME_FILENODE}
 
-all: pull build-coordinator build-node build-filenode
+all: pull build-node-all build-client-all
 
-all-push: pull build-coordinator build-node build-filenode push
+all-push: pull  build-node-all build-client-all push
