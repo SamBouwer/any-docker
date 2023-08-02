@@ -8,7 +8,7 @@ workdir=${workdir:-/}
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
-# Install Android SDK and cmdtools
+# Install Android SDK and cmdtools with ndk-bundle
 cd /usr/lib/android-sdk
 if [ ! -d "cmdline-tools" ] ; then
     sudo wget -N https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
@@ -42,49 +42,6 @@ else
     git pull
 fi
 
-# Build Android
-cd $workdir/anytype-clients
-
-cd $workdir/anytype-clients
-if [ ! -d "anytype-kotlin" ] ; then
-    echo "Cloning anytype-kotlin repository..."
-    git clone https://github.com/anyproto/anytype-kotlin
-    cd anytype-kotlin
-else
-    echo "Pulling latest anytype-kotlin repository..."
-    cd "anytype-kotlin"
-    git pull
-fi
-
-read -p "Github User Id: " GITHUBUSERNAME
-echo "Looking up github Id for $GITHUBUSERNAME"
-GITHUB_USER_ID=$(wget -O - "https://api.github.com/users/${GITHUBUSERNAME}" | grep -Po '"id": \K[[:digit:]]+')
-echo "You github user Id is $GITHUB_USER_ID"
-read -p "Github PAT: " GITHUB_PERSONAL_ACCESS_TOKEN
-touch github.properties
-echo "gpr.usr=${GITHUB_USER_ID}" >> github.properties
-echo "gpr.key=${GITHUB_PERSONAL_ACCESS_TOKEN}" >> github.properties
-
-read -p "wait"
-
-#Replace keys with actual keys, preferanbly as input vars of the script
-touch apikeys.properties
-echo 'amplitude.debug="AMPLITUDE_DEBUG_KEY"' >> apikeys.properties
-echo 'amplitude.release="AMPLITUDE_RELEASE_KEY"' >> apikeys.properties
-echo 'sentry_dsn="SENTRY_DSN_KEY"' >> apikeys.properties
-
-gradle build
-
-# Build middleware library for Android client
-mkdir -p $workdir/anytype-clients/dist/android/pb
-make build-android ANY_SYNC_NETWORK=$workdir/heart.yml
-make protos-java
-
-# Build middleware library for iOS client, which cannot be done one Linux, see https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile
-#mkdir -p $workdir/anytype-clients/dist/ios/pb
-#make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
-#make protos-swift
-
 # Build Desktop client
 cd $workdir/anytype-clients
 git clone https://github.com/anyproto/anytype-ts
@@ -96,7 +53,9 @@ npm install -D
 go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
 make setup-protoc
 make protos
+
 # Build middleware library for Desktop client
+cd $workdir/anytype-clients
 mkdir -p $workdir/anytype-clients/anytype-ts
 make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
 
@@ -106,3 +65,51 @@ npm run dist:linux
 
 SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev
 #SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
+
+# Build Android
+cd $workdir/anytype-clients
+if [ ! -d "anytype-kotlin" ] ; then
+    echo "Cloning anytype-kotlin repository..."
+    git clone https://github.com/anyproto/anytype-kotlin
+    cd anytype-kotlin
+else
+    echo "Pulling latest anytype-kotlin repository..."
+    cd "anytype-kotlin"
+    git pull
+fi
+
+cd $workdir/anytype-clients/anytype-kotlin
+if [ ! -f "github.properties" ] ; then
+    read -p "Github User Id: " GITHUBUSERNAME
+    echo "Looking up github Id for $GITHUBUSERNAME"
+    GITHUB_USER_ID=$(wget -O - "https://api.github.com/users/${GITHUBUSERNAME}" | grep -Po '"id": \K[[:digit:]]+')
+    echo "You github user Id is $GITHUB_USER_ID"
+    read -p "Github PAT: " GITHUB_PERSONAL_ACCESS_TOKEN
+    touch github.properties
+    echo "gpr.usr=${GITHUB_USER_ID}" >> github.properties
+    echo "gpr.key=${GITHUB_PERSONAL_ACCESS_TOKEN}" >> github.properties
+else
+    echo "github.properties file already present. Delete the file and run this script again to replace it, or edit the file manually"
+fi
+
+if [ ! -f "apikeys.properties" ] ; then
+    touch apikeys.properties
+    echo 'amplitude.debug="AMPLITUDE_DEBUG_KEY"' >> apikeys.properties
+    echo 'amplitude.release="AMPLITUDE_RELEASE_KEY"' >> apikeys.properties
+    echo 'sentry_dsn="SENTRY_DSN_KEY"' >> apikeys.properties
+else
+    echo "apikeys.properties file already present. Delete the file and run this script again to replace it, or edit the file manually"
+fi
+
+gradle build
+
+# Build middleware library for Android client
+cd $workdir/anytype-clients
+mkdir -p $workdir/anytype-clients/dist/android/pb
+make build-android ANY_SYNC_NETWORK=$workdir/heart.yml
+make protos-java
+
+# Build middleware library for iOS client, which cannot be done one Linux, see https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile
+#mkdir -p $workdir/anytype-clients/dist/ios/pb
+#make build-ios ANY_SYNC_NETWORK=$workdir/heart.yml
+#make protos-swift
