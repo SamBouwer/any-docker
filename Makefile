@@ -24,7 +24,7 @@ help:
 	    @echo "ANY_DOCKER_VER	Any-docker version (default: 1)"
 	    @echo ""
 	    @echo "Makefile commands:"
-	    @echo "pull					Pull latest from repository"
+	    @echo "pull				Pull latest from repository"
 	    @echo "setup-dev-env 			Setup development environent (install packages and dependencies), only needs to be run once"
 	    @echo "build-node-all			Build all node images"
 	    @echo "build-node-coordinator 		Build coordinator only"
