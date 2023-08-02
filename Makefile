@@ -31,7 +31,7 @@ help:
 	    @echo "build-node-coordinator 		Build coordinator only"
 	    @echo "build-node-syncnode		Build sync node only"
 	    @echo "build-node-filenode 		Build filenode only"
-	    @echo "build-client-heart		Build middleware and clients"
+	    @echo "build-heart			Build middleware and clients"
 	    @echo "build-client-win		Build Windows client"
 	    @echo "build-client-linux		Build Linux client"
 	    @echo "build-client-macos		Build MacOS client"
@@ -59,7 +59,7 @@ build-node-filenode:
 
 build-node-all: build-node-coordinator build-node-syncnode build-node-filenode
 
-build-client-heart:
+build-heart:
 	    ./build_heart_clients.sh
 
 build-client-win:
@@ -81,4 +81,4 @@ push:
 
 all: pull build-node-all build-client-all
 
-all-push: pull  build-node-all build-client-all push
+all-push: pull build-node-all build-client-all push
