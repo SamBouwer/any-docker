@@ -10,7 +10,6 @@ workdir=${PWD}
 workdir=${workdir:-/}
 
 mkdir -p $workdir/anytype-clients
-mkdir -p $workdir/anytype-node
 
 while getopts v: flag
 do
