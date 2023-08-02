@@ -81,14 +81,17 @@ docker compose down
 
 ## Build clients
 
-To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run: 
+To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run:
 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
+make setup-dev-env
 make build-heart
 make build-client-all
 ```
+
+> ℹ️ Note: you only need to run `make setup-dev-env` once to install dependencies and create the required folder structure. If you (accidently) deleted or moved a folder or uninstalled packages required for building Anytype clients, you need to run this command again. You can always run it just to make sure everything is setup properly
 
 Clients will be in the "anytype" folder once done. 
 
