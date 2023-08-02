@@ -56,20 +56,22 @@ fi
 npm install -D
 
 # Rebuild protobuf generated files
+# Build middleware library from source for Desktop client
+cd $workdir/anytype-clients
+mkdir -p $workdir/anytype-clients/anytype-ts
+make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
+
 # temp fix to resolve error when installing 
 go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
 make setup-protoc
 make protos
 
-# Build middleware library for Desktop client
-cd $workdir/anytype-clients
-mkdir -p $workdir/anytype-clients/anytype-ts
-make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
-
+# Run client build
 npm run dist:win
 npm run dist:linux
 #npm run dist:mac
 
+#Run
 SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev
 #SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
 
