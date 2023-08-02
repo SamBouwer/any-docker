@@ -48,14 +48,16 @@ pull:
 setup-dev-env:
 	    ./setup_dev_env.sh -v ${GOLANG_VER}
 
-build-client-coordinator:
+build-node-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} anytype-node/
 
-build-client-node:
+build-node-syncnode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_NODE} --target ${IMAGENAME_NODE} anytype-node/
 
-build-client-filenode:
+build-node-filenode:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_FILENODE} --target ${IMAGENAME_FILENODE} anytype-node/
+
+build-node-all: build-node-coordinator build-node-syncnode build-node-filenode
 
 build-client-heart:
 	    ./build_heart_clients.sh
