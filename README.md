@@ -46,7 +46,7 @@ apt-get install -y git
 
 ## Run node in docker
 
-To get started, clone this repository, enter the directory, and run your node including the required infrastructure in Docker compose using the `docker-compose-example.yml` and `.env.example` files:
+To get started, clone this repository, enter the directory, and run your node including the required infrastructure in Docker compose using the `docker-compose.yml` and `.env` files:
 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
