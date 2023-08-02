@@ -8,8 +8,6 @@ workdir=${workdir:-/}
 
 ## BUILD ANYTYPE HEART LIBRARIES AND CLIENTS ##
 
-mkdir -p anytype-clients
-
 # Install Android SDK and cmdtools
 cd /usr/lib/android-sdk
 if [ ! -d "cmdline-tools" ] ; then
