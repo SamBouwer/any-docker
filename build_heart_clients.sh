@@ -33,18 +33,26 @@ fi
 # Build any-heart including protobuf files and test dependencies
 cd $workdir/anytype-clients
 if [ ! -d "anytype-heart" ] ; then
+    echo "Cloning anytype-heart repository..."
     git clone https://github.com/anyproto/anytype-heart
     cd anytype-heart
 else
+    echo "Pulling latest anytype-heart repository..."
     cd "anytype-heart"
     git pull
 fi
 
 # Build Android
+cd $workdir/anytype-clients
 git clone https://github.com/anyproto/anytype-kotlin
 cd anytype-kotlin
+read -p "Github User Id" GITHUB_USERNAME
+GITHUB_USER_ID=$(wget -0 - 'https://api.github.com/users/${GITHUB_USERNAME}' | grep -Po '"id": [[:digit:]]+,')
+echo $GITHUB_USER_ID
+read -p "wait"
+read -p "Github PAT "
 touch github.properties
-echo 'gpr.usr=GITHUB_USER_ID' >> github.properties
+echo 'gpr.usr=${GITHUB_USER_ID}' >> github.properties
 echo 'gpr.key=GITHUB_PERSONAL_ACCESS_TOKEN' >> github.properties
 
 #Replace keys with actual keys, preferanbly as input vars of the script
