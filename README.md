@@ -125,6 +125,4 @@ I am not part of the Anytype team.
 ## TODO
 
 * Improve documentation how to build and run a node
-* Take anytype-heart out of Dockerimage and make it part of the client building steps
-* How to build, distribute and run clients (Windows, Android)
-* Split monolith Docker image to allow BYOI (bring your own infra; s3, mongodo, redis)
+* Distribute and run clients (Windows, Android)
