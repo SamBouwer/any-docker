@@ -113,8 +113,8 @@ fi
 gradle build
 
 # Build middleware library for Android client
-cd $workdir/anytype-clients
-mkdir -p $workdir/anytype-clients/dist/android/pb
+cd $workdir/anytype-clients/anytype-kotlin
+mkdir -p $workdir/anytype-clients/anytype-kotlin/dist/android/pb
 make build-android ANY_SYNC_NETWORK=$workdir/heart.yml
 make protos-java
 
