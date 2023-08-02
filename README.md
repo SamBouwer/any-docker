@@ -86,7 +86,7 @@ To actually use then node, we need to build Anytype clients that can connect to 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
-make build-heart
+make build-client-all
 ```
 
 Clients will be in the "anytype" folder once done. 
