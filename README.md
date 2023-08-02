@@ -121,8 +121,3 @@ As building Anytype nodes and clients from source for selfhosting is new, and I 
 ## Disclaimer
 
 I am not part of the Anytype team.
-
-## TODO
-
-* Improve documentation how to build and run a node
-* Distribute and run clients (Windows, Android)
