@@ -10,6 +10,9 @@ workdir=${PWD}
 workdir=${workdir:-/}
 
 mkdir -p $workdir/anytype-clients
+mkdir -p $workdir/anytype-clients/anytype-ts
+mkdir -p $workdir/anytype-clients/anytype-heart
+mkdir -p $workdir/anytype-clients/anytype-kotlin
 
 while getopts v: flag
 do
