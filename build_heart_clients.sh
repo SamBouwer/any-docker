@@ -58,7 +58,7 @@ fi
 
 read -p "Github User Id: " GITHUBUSERNAME
 echo "Looking up github Id for $GITHUBUSERNAME"
-GITHUB_USER_ID=$(wget -O - 'https://api.github.com/users/${GITHUBUSERNAME}' | grep -Po '"id": \K[[:digit:]]+,')
+GITHUB_USER_ID=$(wget -O - "https://api.github.com/users/${GITHUBUSERNAME}" | grep -Po '"id": \K[[:digit:]]+,')
 echo $GITHUB_USER_ID
 read -p "wait"
 read -p "Github PAT "
