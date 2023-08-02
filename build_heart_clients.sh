@@ -44,10 +44,20 @@ fi
 
 # Build Android
 cd $workdir/anytype-clients
-git clone https://github.com/anyproto/anytype-kotlin
-cd anytype-kotlin
-read -p "Github User Id" GITHUB_USERNAME
-GITHUB_USER_ID=$(wget -0 - 'https://api.github.com/users/${GITHUB_USERNAME}' | grep -Po '"id": [[:digit:]]+,')
+
+cd $workdir/anytype-clients
+if [ ! -d "anytype-kotlin" ] ; then
+    echo "Cloning anytype-kotlin repository..."
+    git clone https://github.com/anyproto/anytype-kotlin
+    cd anytype-kotlin
+else
+    echo "Pulling latest anytype-kotlin repository..."
+    cd "anytype-kotlin"
+    git pull
+fi
+
+read -p "Github User Id: " GITHUB_USERNAME
+GITHUB_USER_ID=$(wget -O - 'https://api.github.com/users/${GITHUB_USERNAME}' | grep -Po '"id": \K[[:digit:]]+,')
 echo $GITHUB_USER_ID
 read -p "wait"
 read -p "Github PAT "
