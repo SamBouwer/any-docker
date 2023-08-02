@@ -6,6 +6,12 @@ echo ""
 echo "-=[ Setting up development environment for building anytype nodes and clients ]=-"
 echo ""
 
+workdir=${PWD}
+workdir=${workdir:-/}
+
+mkdir -p $workdir/anytype-clients
+mkdir -p $workdir/anytype-node
+
 while getopts v: flag
 do
     case "${flag}" in
