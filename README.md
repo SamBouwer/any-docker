@@ -86,7 +86,7 @@ To actually use the node, we need to build Anytype clients that can connect to t
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
-make build-client-heart
+make build-heart
 make build-client-all
 ```
 
