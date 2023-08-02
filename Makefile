@@ -35,7 +35,7 @@ help:
 	    @echo "build-client-win		Build Windows client"
 	    @echo "build-client-linux		Build Linux client"
 	    @echo "build-client-macos		Build MacOS client"
-	    @echo "build-client-all		Build MacOS client"
+	    @echo "build-client-all		Build all clients"
 	    @echo "push				Build image and push to docker.io (requires login)"
 	    @echo "all				[default] Build all images and clients"
 	    @echo "all-push			Build and push all images and clients"
