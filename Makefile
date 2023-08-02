@@ -21,7 +21,7 @@ help:
 	    @echo ""
 	    @echo "GOLANG_VER		Go version (default: 1.19)"
 	    @echo "ANYTYPE_VER		Anytype version (default: 0.33.3)"
-	    @echo "ANY_DOCKER_VER	Any-docker version (default: 1)"
+	    @echo "ANY_DOCKER_VER		Any-docker version (default: 1)"
 	    @echo ""
 	    @echo "Makefile commands:"
 	    @echo "pull				Pull latest from repository"
