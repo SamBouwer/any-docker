@@ -58,13 +58,14 @@ fi
 
 read -p "Github User Id: " GITHUBUSERNAME
 echo "Looking up github Id for $GITHUBUSERNAME"
-GITHUB_USER_ID=$(wget -O - "https://api.github.com/users/${GITHUBUSERNAME}" | grep -Po '"id": \K[[:digit:]]+,')
-echo $GITHUB_USER_ID
-read -p "wait"
-read -p "Github PAT "
+GITHUB_USER_ID=$(wget -O - "https://api.github.com/users/${GITHUBUSERNAME}" | grep -Po '"id": \K[[:digit:]]+')
+echo "You github user Id is $GITHUB_USER_ID"
+read -p "Github PAT: " GITHUB_PERSONAL_ACCESS_TOKEN
 touch github.properties
-echo 'gpr.usr=${GITHUB_USER_ID}' >> github.properties
-echo 'gpr.key=GITHUB_PERSONAL_ACCESS_TOKEN' >> github.properties
+echo "gpr.usr=${GITHUB_USER_ID}" >> github.properties
+echo "gpr.key=${GITHUB_PERSONAL_ACCESS_TOKEN}" >> github.properties
+
+read -p "wait"
 
 #Replace keys with actual keys, preferanbly as input vars of the script
 touch apikeys.properties
