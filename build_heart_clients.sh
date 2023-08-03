@@ -57,8 +57,7 @@ npm install -D
 
 # Rebuild protobuf generated files
 # Build middleware library from source for Desktop client
-cd $workdir/anytype-clients
-mkdir -p $workdir/anytype-clients/anytype-ts
+cd $workdir/anytype-clients/anytype-heart
 make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
 
 # temp fix to resolve error when installing 
@@ -67,6 +66,7 @@ make setup-protoc
 make protos
 
 # Run client build
+cd $workdir/anytype-clients/anytype-ts
 npm run dist:win
 npm run dist:linux
 #npm run dist:mac
