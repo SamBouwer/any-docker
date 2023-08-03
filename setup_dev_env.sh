@@ -27,13 +27,9 @@ if [ "${GOLANG_VER_INSTALLED}" == "go version go${GOLANG_VER} linux/amd64" ] ; t
   echo "'go version go${GOLANG_VER} linux/amd64' is already installed, skipping..."
 else
   echo "Installing 'go version go${GOLANG_VER} linux/amd64'"
-fi
-
-wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
-
-if [ -d "go1.19.11.linux-amd64.tar.gz" ] ; then
+  wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz
   tar -C /usr/local -xzf $HOME/go${GOLANG_VER}.linux-amd64.tar.gz
-  rm go1.19.11.linux-amd64.tar.gz
+  rm go${GOLANG_VER}.linux-amd64.tar.gz
 fi
 
 
