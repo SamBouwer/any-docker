@@ -44,7 +44,7 @@ fi
 
 # Build Desktop client
 cd $workdir/anytype-clients
-if [ ! -e "anytype-ts/package.json" ] ; then
+if [ ! -d "anytype-ts" ] ; then
     echo "Cloning anytype-ts repository..."
     git clone https://github.com/anyproto/anytype-ts
     cd anytype-ts
