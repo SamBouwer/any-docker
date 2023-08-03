@@ -61,9 +61,12 @@ npm install -D
 cd $workdir/anytype-clients/anytype-heart
 make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
 
-# temp fix to resolve error when installing 
+# temp fix to resolve errors when installing. protoc-gen-grpc-web and protoc-gen-doc should be installed automatically, but they are not...
+npm install -g protoc-gen-grpc-web
 go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
+echo "Overriding protobuf binary file..."
 make setup-protoc
+ech "Regenerating protobuf files..."
 make protos
 
 # Run client build
