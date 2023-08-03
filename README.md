@@ -27,9 +27,9 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
   - ❌ iOS (can only be built on MacOS, which I currently don't have)
 
 ⏳ Clients 
-  - ⏳ Desktop
-    - ⏳ Windows 
-    - ⏳ Linux
+  - ✅ Desktop
+    - ✅ Windows 
+    - ✅ Linux
     - ❌ MacOS (can only be built on MacOS, which I currently don't have)
   - ⏳ Android 
   - ❌ iOS (can only be built on MacOS, which I currently don't have)
