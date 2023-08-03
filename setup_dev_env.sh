@@ -65,4 +65,4 @@ set -eux; \
         ; \
         sudo rm -rf /var/lib/apt/lists/*
 
-snap install snapcraft --classic
+sudo snap install snapcraft --classic
