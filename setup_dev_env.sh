@@ -61,6 +61,7 @@ set -eux; \
                 containerd.io `# needed for building and running docker images` \
                 docker-buildx-plugin `# needed for building and running docker images` \
                 docker-compose-plugin `# needed for building and running docker images` \
+                rpm `# needed for building Anytype Desktop for Linux`
         ; \
         sudo rm -rf /var/lib/apt/lists/*
 
