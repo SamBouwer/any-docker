@@ -63,3 +63,5 @@ set -eux; \
                 docker-compose-plugin `# needed for building and running docker images` \
         ; \
         sudo rm -rf /var/lib/apt/lists/*
+
+snap install snapcraft --classic
