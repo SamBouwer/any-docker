@@ -53,6 +53,7 @@ else
     cd "anytype-ts"
     git pull
 fi
+echo "Starting npm install..."
 npm install -D
 
 # Rebuild protobuf generated files
