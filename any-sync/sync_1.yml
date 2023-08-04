@@ -1,0 +1,48 @@
+account:
+    peerId: 12D3KooWRR72KmktsuRuBnaUUiR8cD7244piCRzxuF2Z67VRhvHy
+    peerKey: 1wbj5KyUnFHRBzP7j9A9IHUCjrmKLBsGo4cZDV/svFnnxYHsUajjm529qNG99nf0pcVrs3rG5zu+iihz+gFljA==
+    signingKey: 1wbj5KyUnFHRBzP7j9A9IHUCjrmKLBsGo4cZDV/svFnnxYHsUajjm529qNG99nf0pcVrs3rG5zu+iihz+gFljA==
+drpc:
+    stream:
+        maxMsgSizeMb: 256
+yamux:
+    listenAddrs:
+        - 172.18.0.3:4430
+    writeTimeoutSec: 10
+    dialTimeoutSec: 10
+network:
+    id: 64c5851cec0fa57f17c37063
+    networkId: N55gSX4DCYyAr2GatgDHg3ZDmgUWu4bGrSxjwjQGs1opjGzS
+    nodes:
+        - peerId: 12D3KooWMXwSnXhEvoiWSPDpSeeytg6roqbhRcFbjz9U894zRZRM
+          addresses:
+            - 172.18.0.2:4830
+          types:
+            - coordinator
+        - peerId: 12D3KooWRR72KmktsuRuBnaUUiR8cD7244piCRzxuF2Z67VRhvHy
+          addresses:
+            - 172.18.0.3:4430
+          types:
+            - tree
+        - peerId: 12D3KooWEzzQDbUfPmTPXb2odkA9iRm69LnZianqGgZ6hhxZbrTa
+          addresses:
+            - 172.18.0.4:4730
+          types:
+            - file
+    creationTime: 2023-07-29T21:31:08.088553197Z
+networkStorePath: .
+networkUpdateIntervalSec: 600
+space:
+    gcTTL: 60
+    syncPeriod: 240
+storage:
+    path: db
+nodeSync:
+    hotSync:
+        simultaneousRequests: 400
+    syncOnStart: true
+    periodicSyncHours: 2
+log:
+    production: false
+    defaultLevel: ""
+    namedLevels: {}

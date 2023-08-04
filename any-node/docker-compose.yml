@@ -1,0 +1,89 @@
+version: "3.8"
+
+services:
+
+  minio:
+    container_name: minio_anytype
+    hostname: minio_anytype
+    image: quay.io/minio/minio
+    command: server --console-address ":9001" /data
+    ports: 
+      - 9000:9000
+      - 9001:9001
+    volumes:
+      - s3:/data
+    restart: unless-stopped
+    env_file:
+      - .env
+      
+  mongo_db:
+    container_name: mongo_anytype
+    image: mongo:4.4
+    volumes:
+      - db:/data/db
+    restart: unless-stopped
+    env_file:
+      - .env
+      
+  redis_db:
+    container_name: redis_anytype
+    image: redis
+    ports:
+      - "6379:6379"
+    
+  any-sync-coordinator:
+    container_name: any-sync-coordinator
+    image: docker.io/sambouwer/any-sync-coordinator:0.33.3-1
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.2
+    ports:
+      - "4830:4830" # coordinator
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: any-sync-coordinator
+
+  any-sync-node:
+    container_name: any-sync-node
+    image: docker.io/sambouwer/any-sync-node:0.33.3-1
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.3
+    ports:
+      - "4430:4430" # sync node
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: any-sync-node
+
+  any-sync-filenode:
+    container_name: any-sync-filenode
+    image: docker.io/sambouwer/any-sync-filenode:0.33.3-1
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.4
+    ports:
+      - "4730:4730" # filenode
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: any-sync-filenode
+
+volumes:
+  s3:
+  db:
+
+networks:
+  any-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/24"
