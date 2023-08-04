@@ -46,7 +46,7 @@ pull:
 	    @git pull
 
 setup-dev-env:
-	    ./setup_dev_env.sh -v ${GOLANG_VER}
+	    ./scripts/setup_dev_env.sh -v ${GOLANG_VER}
 
 build-node-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
@@ -60,7 +60,7 @@ build-node-filenode:
 build-node-all: build-node-coordinator build-node-syncnode build-node-filenode
 
 build-heart:
-	    ./build_heart_clients.sh
+	    ./scripts/build_heart_clients.sh
 
 build-client-win:
 	    @docker 
