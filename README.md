@@ -15,6 +15,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
   - ✅ mongo_express (optional)
   - ✅ minio (s3 file storage)
   - ✅ redis (file cache)
+  - ⏳ reverse proxy
 
 ✅ Any-sync
   - ✅ any-sync-coordinator
