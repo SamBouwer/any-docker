@@ -47,7 +47,7 @@ fi
 cd $workdir/anytype-clients
 if [ ! -e "anytype-ts/package.json" ] ; then
     echo "Cloning anytype-ts repository..."
-    rm -r antype-ts
+    rm -r anytype-ts
     git clone https://github.com/anyproto/anytype-ts
     cd anytype-ts
 else
