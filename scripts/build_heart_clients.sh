@@ -21,6 +21,7 @@ if [ ! -d "cmdline-tools" ] ; then
 else
     echo "'cmdline-tools' already installed. Skipping..."
 fi
+
 if [ ! -d "/usr/lib/android-sdk/ndk-bundle/meta" ] ; then
     echo "Installing ndk-bundle"
     sudo mkdir -p /usr/lib/android-sdk/ndk-bundle
@@ -44,8 +45,9 @@ fi
 
 # Build Desktop client
 cd $workdir/anytype-clients
-if [ ! -d "anytype-ts" ] ; then
+if [ ! -e "anytype-ts/package.json" ] ; then
     echo "Cloning anytype-ts repository..."
+    rm -r antype-ts
     git clone https://github.com/anyproto/anytype-ts
     cd anytype-ts
 else
