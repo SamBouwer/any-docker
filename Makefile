@@ -27,6 +27,7 @@ help:
 	    @echo ""
 	    @echo "pull				Pull latest from repository"
 	    @echo "setup-dev-env 			Setup development environent (install packages and dependencies), only needs to be run once"
+	    @echo "create-network-conf			Create yml configuration files needed for Anytype nodes and clients. If you don't run this step, the default configuration will be used"
 	    @echo "build-node-all			Build all node images"
 	    @echo "build-node-coordinator 		Build coordinator only"
 	    @echo "build-node-syncnode		Build sync node only"
@@ -48,6 +49,9 @@ pull:
 
 setup-dev-env:
 	    ./scripts/setup_dev_env.sh -v ${GOLANG_VER}
+
+create-network-conf:
+	    ./scripts/create_network_conf.sh
 
 build-node-coordinator:
 	    @docker build --pull --build-arg GOLANG_VER=${GOLANG_VER} -t ${IMAGEFULLNAME_COORDINATOR} --target ${IMAGENAME_COORDINATOR} .
