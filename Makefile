@@ -39,6 +39,7 @@ help:
 	    @echo "push				Build image and push to docker.io (requires login)"
 	    @echo "all				[default] Build all images and clients"
 	    @echo "all-push			Build and push all images and clients"
+	    @echo "clean			Clean all repositories. You'll need to run the `make build-*` commands again"
 
 .DEFAULT_GOAL := all
 
@@ -82,3 +83,6 @@ push:
 all: pull build-node-all build-client-all
 
 all-push: pull build-node-all build-client-all push
+
+clean:
+	    rm -r anytype-clients/
