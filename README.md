@@ -50,7 +50,7 @@ To get started, clone this repository, enter the directory, and run your node in
 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
-cd any-docker/any-node
+cd any-docker/any-node/
 docker compose up -d
 cd ..
 ```
