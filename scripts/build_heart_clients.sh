@@ -61,7 +61,7 @@ npm install -D
 # Rebuild protobuf generated files
 # Build middleware library from source for Desktop client
 cd $workdir/anytype-clients/anytype-heart
-make install-dev-js ANY_SYNC_NETWORK=$workdir/heart.yml
+make install-dev-js ANY_SYNC_NETWORK=$workdir/any-sync/heart.yml
 
 # temp fix to resolve errors when installing. protoc-gen-grpc-web and protoc-gen-doc should be installed automatically, but they are not...
 npm install -g protoc-gen-grpc-web
@@ -121,7 +121,7 @@ gradle build
 # Build middleware library for Android client
 cd $workdir/anytype-clients/anytype-kotlin
 mkdir -p $workdir/anytype-clients/anytype-kotlin/dist/android/pb
-make build-android ANY_SYNC_NETWORK=$workdir/heart.yml
+make build-android ANY_SYNC_NETWORK=$workdir/any-sync/heart.yml
 make protos-java
 
 # Build middleware library for iOS client, which cannot be done one Linux, see https://pkg.go.dev/golang.org/x/mobile/cmd/gomobile
