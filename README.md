@@ -52,7 +52,6 @@ To get started, clone this repository, enter the directory, and run your node in
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker/any-node/
 docker compose up -d
-cd ..
 ```
 
 > ℹ️ Tip: run `git pull` when you want to pull the latest version of the repository to your local machine.
@@ -83,6 +82,8 @@ docker compose down
 ## Build clients
 
 To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run:
+
+> ⚠️ Don't forget to navigate back to the folder where you already have cloned `any-docker` or where you want to clone the repo if not cloned yet!
 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
