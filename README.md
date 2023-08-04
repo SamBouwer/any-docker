@@ -50,8 +50,9 @@ To get started, clone this repository, enter the directory, and run your node in
 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
-cd any-docker
+cd any-docker/any-node
 docker compose up -d
+cd ..
 ```
 
 > ℹ️ Tip: run `git pull` when you want to pull the latest version of the repository to your local machine.
@@ -73,7 +74,7 @@ You should now see something similar to this:
 
 Congratulations! 🎉 You are now running your own Anytype Node!
 
-To stop the node again, run:
+To stop the node again, navigate to the any-node folder and bring the stack down:
 
 ```bash
 docker compose down
