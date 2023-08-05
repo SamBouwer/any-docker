@@ -67,6 +67,10 @@ echo "Start test procedure..."
 # Run client build
 echo "Building Windows client..."
 cd $workdir/anytype-clients/anytype-ts
+# Temp fix to skip AzureSignTool step (see also here: https://github.com/anyproto/anytype-ts/issues/156)
+jq 'del(.build.win.sign)' package.json >> package_new.json
+rm package.json
+mv package_new.json package.json
 npm run dist:win
 
 #Run
