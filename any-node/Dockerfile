@@ -64,7 +64,7 @@ RUN chmod +x any-sync-coordinator
 
 # Run startup script
 WORKDIR /anytype
-COPY any-sync/startup_coordinator.sh .
+COPY scripts/startup_coordinator.sh .
 RUN chmod -R 700 ./startup_coordinator.sh
 EXPOSE 4830
 CMD ["/bin/bash","-c","./startup_coordinator.sh"]
