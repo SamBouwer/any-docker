@@ -29,7 +29,7 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
 
 ⏳ Clients 
   - ⏳ Desktop
-    - ✅ Windows (build succeeds, but remains untested)
+    - ⏳ Windows (build succeeds, but client won't run properly yet)
     - ❌ Linux (snapcraft error: snapcraft does not currently support building arm64 on amd64)
     - ❌ MacOS (can only be built on MacOS, which I currently don't have)
   - ⏳ Android 
