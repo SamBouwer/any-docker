@@ -43,14 +43,17 @@ npm install -g protoc-gen-grpc-web
 go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
 echo "Overriding protobuf binary file..."
 make setup-protoc
-ech "Regenerating protobuf files..."
+echo "Regenerating protobuf files..."
 make protos
 
 # Optionally, build and run tests
+echo "Installing test dependencies..."
 make test-deps
+echo "Start test procedure..."
 make test
 
 # Integration tests (run local 
+echo "Starting local gRPC server..."
 export ANYTYPE_TEST_GRPC_PORT=31088
 docker compose up -d
 make test-integration
@@ -59,8 +62,10 @@ make test-integration
 make build-server
 
 # Run client build
+echo "Building Windows client..."
 cd $workdir/anytype-clients/anytype-ts
 npm run dist:win
 
 #Run
+echo "Running local server..."
 SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
