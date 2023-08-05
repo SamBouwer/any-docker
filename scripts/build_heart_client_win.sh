@@ -56,7 +56,7 @@ make test
 echo "Starting local gRPC server..."
 
 read -p "Github Login: " GITHUB_LOGIN_PROMPT
-read -p "Github Token: " GITHUB_TOKEN_PROMPT
+read -s -p "Github Token: " GITHUB_TOKEN_PROMPT
 
 sudo ANYTYPE_TEST_GRPC_PORT=31088 GITHUB_LOGIN=$GITHUB_LOGIN_PROMPT GITHUB_TOKEN=$GITHUB_TOKEN_PROMPT docker compose up -d
 make test-integration
