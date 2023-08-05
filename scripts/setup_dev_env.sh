@@ -25,7 +25,7 @@ if [ "${GOLANG_VER_INSTALLED}" == "go version go${GOLANG_VER} linux/amd64" ] ; t
 else
   echo "Installing 'go version go${GOLANG_VER} linux/amd64'"
   wget -N https://go.dev/dl/go${GOLANG_VER}.linux-amd64.tar.gz -P $HOME/
-  tar -C /usr/local -xzf $HOME/go${GOLANG_VER}.linux-amd64.tar.gz
+  sudo tar -C /usr/local -xzf $HOME/go${GOLANG_VER}.linux-amd64.tar.gz
   rm $HOME/go${GOLANG_VER}.linux-amd64.tar.gz
 fi
 
