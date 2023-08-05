@@ -59,8 +59,8 @@ read -p "Github Login: " GITHUB_LOGIN_PROMPT
 read -p "Github Token: " GITHUB_TOKEN_PROMPT
 
 export ANYTYPE_TEST_GRPC_PORT=31088
-export GITHUB_LOGIN=${GITHUB_LOGIN_PROMPT}
-export GITHUB_TOKEN=${GITHUB_TOKEN_PROMPT}
+export GITHUB_LOGIN=$GITHUB_LOGIN_PROMPT
+export GITHUB_TOKEN=$GITHUB_TOKEN_PROMPT
 sudo docker compose up -d
 make test-integration
 
