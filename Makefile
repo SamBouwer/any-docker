@@ -32,8 +32,7 @@ help:
 	    @echo "build-node-coordinator 		Build coordinator only"
 	    @echo "build-node-syncnode		Build sync node only"
 	    @echo "build-node-filenode 		Build filenode only"
-	    @echo "build-heart			Build middleware and clients"
-	    @echo "build-client-win		Build Windows client"
+	    @echo "build-client-win		Build Windows middleware and client"
 	    @echo "build-client-linux		Build Linux client"
 	    @echo "build-client-macos		Build MacOS client"
 	    @echo "build-client-all		Build all clients"
@@ -64,19 +63,23 @@ build-node-filenode:
 
 build-node-all: build-node-coordinator build-node-syncnode build-node-filenode
 
-build-heart:
-	    ./scripts/build_heart_clients.sh
 
 build-client-win:
-	    @docker 
+	    ./scripts/build_heart_client_win.sh
 
 build-client-linux:
-	    @docker
+	    @echo not implemented yet
 
 build-client-macos:
-	    @docker
+	    @echo not implemented yet
 
-build-client-all: build-client-win build-client-linux build-client-macos
+build-client-android:
+	    @echo not implemented yet
+
+build-client-ios:
+	    @echo not implemented yet
+
+build-client-all: build-client-win build-client-linux build-client-macos build-client-android build-client-ios
 
 push:
 	    @docker login
