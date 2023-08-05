@@ -51,7 +51,7 @@ WORKDIR /anytype/any-sync-tools
 RUN go install ./any-sync-network
 # Instead of running "any-sync-network create" in startup script, just copy the files that should be created in advance
 WORKDIR /anytype
-COPY any-sync/coordinator.yml .
+COPY ../any-sync/coordinator.yml .
 
 # Build any-sync-coordinator
 WORKDIR /anytype
@@ -64,7 +64,7 @@ RUN chmod +x any-sync-coordinator
 
 # Run startup script
 WORKDIR /anytype
-COPY any-sync/startup_coordinator.sh .
+COPY ../any-sync/startup_coordinator.sh .
 RUN chmod -R 700 ./startup_coordinator.sh
 EXPOSE 4830
 CMD ["/bin/bash","-c","./startup_coordinator.sh"]
@@ -85,12 +85,12 @@ WORKDIR /anytype/any-sync-node/bin
 RUN chmod +x any-sync-node
 
 WORKDIR /anytype
-COPY any-sync/sync_1.yml .
+COPY ../any-sync/sync_1.yml .
 RUN mkdir -p /anytype/db
 
 # Run startup script
 WORKDIR /anytype
-COPY scripts/startup_node.sh .
+COPY ../scripts/startup_node.sh .
 RUN chmod -R 700 ./startup_node.sh
 EXPOSE 4430
 CMD ["/bin/bash","-c","./startup_node.sh"]
@@ -111,11 +111,11 @@ WORKDIR /anytype/any-sync-filenode/bin
 RUN chmod +x any-sync-filenode
 
 WORKDIR /anytype
-COPY any-sync/file_1.yml .
+COPY ../any-sync/file_1.yml .
 
 # Run startup script
 WORKDIR /anytype
-COPY scripts/startup_filenode.sh .
+COPY ../scripts/startup_filenode.sh .
 RUN chmod -R 700 ./startup_filenode.sh
 EXPOSE 4730
 CMD ["/bin/bash","-c","./startup_filenode.sh"]
