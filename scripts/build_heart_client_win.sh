@@ -6,9 +6,7 @@ echo ""
 workdir=${PWD}
 workdir=${workdir:-/}
 
-## BUILD ANYTYPE HEART LIBRARIES AND CLIENT ##
-
-# Build any-heart including protobuf files and test dependencies
+# Build any-heart including protobuf files
 cd $workdir/anytype-clients
 if [ ! -d "anytype-heart" ] ; then
     echo "Cloning anytype-heart repository..."
