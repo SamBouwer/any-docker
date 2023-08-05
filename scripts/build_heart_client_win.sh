@@ -71,6 +71,11 @@ cd $workdir/anytype-clients/anytype-ts
 jq 'del(.build.win.sign)' package.json >> package_new.json
 rm package.json
 mv package_new.json package.json
+
+# Second fix to install specific issue with "keytar.node is not a valid Win32 application" when running the client
+npx electron-builder@24.6.3 install-app-deps --platform=win32 --arch=x64
+
+# Actual build
 npm run dist:win
 
 #Run
