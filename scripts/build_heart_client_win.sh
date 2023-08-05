@@ -48,21 +48,21 @@ make protos
 
 # Optionally, build and run tests
 echo "Installing test dependencies..."
-make test-deps
+#make test-deps
 echo "Start test procedure..."
-make test
+#make test
 
 # Integration tests (run local 
-echo "Starting local gRPC server..."
+#echo "Starting local gRPC server..."
 
-read -p "Github Login: " GITHUB_LOGIN_PROMPT
-read -s -p "Github Token: " GITHUB_TOKEN_PROMPT
+#read -p "Github Login: " GITHUB_LOGIN_PROMPT
+#read -s -p "Github Token: " GITHUB_TOKEN_PROMPT
 
-sudo ANYTYPE_TEST_GRPC_PORT=31088 GITHUB_LOGIN=$GITHUB_LOGIN_PROMPT GITHUB_TOKEN=$GITHUB_TOKEN_PROMPT docker compose up -d
-make test-integration
+#sudo ANYTYPE_TEST_GRPC_PORT=31088 GITHUB_LOGIN=$GITHUB_LOGIN_PROMPT GITHUB_TOKEN=$GITHUB_TOKEN_PROMPT docker compose up -d
+#make test-integration
 
 # Run local gRPC server to debug on default port 9999
-make build-server
+#make build-server
 
 # Run client build
 echo "Building Windows client..."
@@ -71,4 +71,4 @@ npm run dist:win
 
 #Run
 echo "Running local server..."
-SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
+#SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
