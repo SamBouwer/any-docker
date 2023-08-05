@@ -55,13 +55,13 @@ make test
 # Integration tests (run local 
 echo "Starting local gRPC server..."
 
-read -p "Github Login" GITHUB_LOGIN_PROMPT
-read -p "Github Token" GITHUB_TOKEN_PROMPT
+read -p "Github Login: " GITHUB_LOGIN_PROMPT
+read -p "Github Token: " GITHUB_TOKEN_PROMPT
 
 export ANYTYPE_TEST_GRPC_PORT=31088
 export GITHUB_LOGIN=${GITHUB_LOGIN_PROMPT}
 export GITHUB_TOKEN=${GITHUB_TOKEN_PROMPT}
-docker compose up -d
+sudo docker compose up -d
 make test-integration
 
 # Run local gRPC server to debug on default port 9999
