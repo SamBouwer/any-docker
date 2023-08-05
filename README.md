@@ -110,7 +110,7 @@ cd any-docker
 make build-node-all
 ```
 
-> ℹ️ Tip: run `make help` to see all make options
+> ℹ️ Tip: run `make help` to see all make options, for example to build individual nodes or clients only
 
 This will build the following docker images:
 
