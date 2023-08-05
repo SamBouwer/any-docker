@@ -33,18 +33,30 @@ fi
 echo "Starting npm install..."
 npm install -D
 
-# Rebuild protobuf generated files
-# Build middleware library from source for Desktop client
+# Rebuild protobuf generated files by uild middleware library from source for Desktop client
 cd $workdir/anytype-clients/anytype-heart
 make install-dev-js ANY_SYNC_NETWORK=$workdir/any-sync/heart.yml
 
 # temp fix to resolve errors when installing. protoc-gen-grpc-web and protoc-gen-doc should be installed automatically, but they are not...
+echo "Downloading dependencies..."
 npm install -g protoc-gen-grpc-web
 go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
 echo "Overriding protobuf binary file..."
 make setup-protoc
 ech "Regenerating protobuf files..."
 make protos
+
+# Optionally, build and run tests
+make test-deps
+make test
+
+# Integration tests (run local 
+export ANYTYPE_TEST_GRPC_PORT=31088
+docker compose up -d
+make test-integration
+
+# Run local gRPC server to debug on default port 9999
+make build-server
 
 # Run client build
 cd $workdir/anytype-clients/anytype-ts
