@@ -7,6 +7,9 @@ services:
     hostname: minio_anytype
     image: quay.io/minio/minio
     command: server --console-address ":9001" /data
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.5
     ports: 
       - 9000:9000
       - 9001:9001
@@ -19,6 +22,9 @@ services:
   mongo_db:
     container_name: mongo_anytype
     image: mongo:4.4
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.6
     volumes:
       - db:/data/db
     restart: unless-stopped
@@ -28,6 +34,9 @@ services:
   redis_db:
     container_name: redis_anytype
     image: redis
+    networks:
+      any-network:
+        ipv4_address: 172.18.0.8
     ports:
       - "6379:6379"
     
