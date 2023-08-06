@@ -33,23 +33,26 @@ fi
 echo "Starting npm install..."
 npm install -D
 
+./update.sh windows-latest
+
 # Rebuild protobuf generated files by uild middleware library from source for Desktop client
 cd $workdir/anytype-clients/anytype-heart
 make install-dev-js ANY_SYNC_NETWORK=$workdir/any-sync/heart.yml
 
 # temp fix to resolve errors when installing. protoc-gen-grpc-web and protoc-gen-doc should be installed automatically, but they are not...
-echo "Downloading dependencies..."
-npm install -g protoc-gen-grpc-web
-go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
-echo "Overriding protobuf binary file..."
-make setup-protoc
-echo "Regenerating protobuf files..."
-make protos
+#echo "Downloading dependencies..."
+npm install --save-dev webpack-cli --legacy-peer-deps
+#npm install -g protoc-gen-grpc-web
+#go get github.com/pseudomuto/protoc-gen-doc/extensions/google_api_http@v1.5.1
+#echo "Overriding protobuf binary file..."
+##make setup-protoc
+#echo "Regenerating protobuf files..."
+#make protos
 
 # Optionally, build and run tests
-echo "Installing test dependencies..."
+#echo "Installing test dependencies..."
 #make test-deps
-echo "Start test procedure..."
+#echo "Start test procedure..."
 #make test
 
 # Integration tests (run local 
