@@ -30,6 +30,8 @@ else
     cd "anytype-ts"
     git pull
 fi
+echo "Cleaning up..."
+rm -r dist/*
 echo "Starting npm install..."
 npm install -D
 
