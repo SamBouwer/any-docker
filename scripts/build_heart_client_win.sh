@@ -7,27 +7,27 @@ workdir=${PWD}
 workdir=${workdir:-/}
 
 # Build any-heart including protobuf files
-cd $workdir/anytype-clients
+cd "$workdir/anytype-clients" || exit
 if [ ! -d "anytype-heart" ] ; then
     echo "Cloning anytype-heart repository..."
     git clone https://github.com/anyproto/anytype-heart
-    cd anytype-heart
+    cd anytype-heart || exit
 else
     echo "Pulling latest anytype-heart repository..."
-    cd "anytype-heart"
+    cd "anytype-heart" || exit
     git pull
 fi
 
 # Build Desktop client
-cd $workdir/anytype-clients
+cd "$workdir/anytype-clients" || exit
 if [ ! -e "anytype-ts/package.json" ] ; then
     echo "Cloning anytype-ts repository..."
     rm -r anytype-ts
     git clone https://github.com/anyproto/anytype-ts
-    cd anytype-ts
+    cd anytype-ts || exit
 else
     echo "Pulling latest anytype-ts repository..."
-    cd "anytype-ts"
+    cd "anytype-ts" || exit
     git pull
 fi
 echo "Cleaning up..."
@@ -38,7 +38,7 @@ npm install -D
 ./update.sh windows-latest
 
 # Rebuild protobuf generated files by uild middleware library from source for Desktop client
-cd $workdir/anytype-clients/anytype-heart
+cd "$workdir/anytype-clients/anytype-heart" || exit
 make install-dev-js ANY_SYNC_NETWORK=$workdir/any-sync/heart.yml
 
 # temp fix to resolve errors when installing. protoc-gen-grpc-web and protoc-gen-doc should be installed automatically, but they are not...
@@ -71,7 +71,7 @@ npm install --save-dev webpack-cli --legacy-peer-deps
 
 # Run client build
 echo "Building Windows client..."
-cd $workdir/anytype-clients/anytype-ts
+cd "$workdir/anytype-clients/anytype-ts" || exit
 # Temp fix to skip AzureSignTool step (see also here: https://github.com/anyproto/anytype-ts/issues/156)
 jq 'del(.build.win.sign)' package.json >> package_new.json
 rm package.json
