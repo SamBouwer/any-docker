@@ -11,7 +11,7 @@ then
 fi
 
 git clone https://github.com/anyproto/any-sync-tools.git
-cd any-sync-tools
+cd any-sync-tools || exit
 go install ./any-sync-network
-cd ../../any-sync
+cd ../../any-sync || exit
 any-sync-network create
