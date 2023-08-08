@@ -6,6 +6,22 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  #Dockerfile vars
+  REPO: sambouwer
+  GOLANG_VER: 1.19.11
+  ANYTYPE_VER: 0.33.3
+  ANY_DOCKER_VER: 1
+  
+  #vars
+  IMAGENAME_COORDINATOR: any-sync-coordinator
+  IMAGENAME_NODE: any-sync-node
+  IMAGENAME_FILENODE: any-sync-filenode
+  
+  IMAGEFULLNAME_COORDINATOR: $REPO/$IMAGENAME_COORDINATOR:$ANYTYPE_VER-$ANY_DOCKER_VER
+  IMAGEFULLNAME_NODE: $REPO/$IMAGENAME_NODE:$ANYTYPE_VER-$ANY_DOCKER_VER
+  IMAGEFULLNAME_FILENODE: $REPO/$IMAGENAME_FILENODE:$ANYTYPE_VER-$ANY_DOCKER_VER
+    
 jobs:
 
   build:
