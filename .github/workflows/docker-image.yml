@@ -23,8 +23,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          
       - name: Check out Git repository
         uses: actions/checkout@v1
 
       - name: Build docker image
         run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=$GOLANG_VER -t $REPO/$IMAGENAME_COORDINATOR:$ANYTYPE_VER-$ANY_DOCKER_VER --target $IMAGENAME_COORDINATOR .
+        
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: $REPO/$IMAGENAME_COORDINATOR:$ANYTYPE_VER-$ANY_DOCKER_VER
