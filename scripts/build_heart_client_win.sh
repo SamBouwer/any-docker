@@ -84,7 +84,7 @@ npx electron-builder@24.6.3 install-app-deps --platform=win32 --arch=x64
 npm run update:locale
 
 # Actual build (wskip signing as mentioned here: https://github.com/anyproto/anytype-ts/issues/159#issuecomment-1666595258)
-ELECTRON_SKIP_NOTARIZE=1 npm run dist:win
+ELECTRON_SKIP_NOTARIZE=1 ELECTRON_SKIP_SENTRY=1 npm run dist:win
 
 #Run
 echo "Running local server..."
