@@ -23,5 +23,4 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build docker image
-        run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=$GOLANG_VER -t $IMAGEFULLNAME_COORDINATOR --target ${{ vars.IMAGENAME_COORDINATOR }} .
-      
+        run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=1.19.11 -t sambouwer/any-sync-coordinator:0.33.9-1 --target any-sync-coordinator .
