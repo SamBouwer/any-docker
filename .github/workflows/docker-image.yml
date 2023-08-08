@@ -22,5 +22,5 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build docker image
-        run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=$GOLANG_VER -t $IMAGEFULLNAME_COORDINATOR --target $IMAGENAME_COORDINATOR .
+        run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=${{ env.GOLANG_VER }} -t ${{ env.IMAGEFULLNAME_COORDINATOR }} --target ${{ env.IMAGENAME_COORDINATOR }} .
       
