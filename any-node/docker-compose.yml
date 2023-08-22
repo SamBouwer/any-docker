@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-
   minio:
     container_name: minio_anytype
     hostname: minio_anytype
@@ -10,7 +9,7 @@ services:
     networks:
       any-network:
         ipv4_address: 172.18.0.5
-    ports: 
+    ports:
       - 9000:9000
       - 9001:9001
     volumes:
@@ -18,7 +17,7 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-      
+
   mongo_db:
     container_name: mongo_anytype
     image: mongo:4.4
@@ -30,7 +29,7 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-      
+
   redis_db:
     container_name: redis_anytype
     image: redis
@@ -39,7 +38,7 @@ services:
         ipv4_address: 172.18.0.8
     ports:
       - "6379:6379"
-    
+
   any-sync-coordinator:
     container_name: any-sync-coordinator
     image: docker.io/sambouwer/any-sync-coordinator:0.33.3-1

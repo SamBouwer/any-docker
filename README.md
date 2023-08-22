@@ -11,31 +11,36 @@ Aim: provide a simple to use yet customizable docker solution that runs an Anyty
 ## Project Status
 
 ✅ Infrastructure
-  - ✅ mongodb (database)
-  - ✅ mongo_express (optional)
-  - ✅ minio (s3 file storage)
-  - ✅ redis (file cache)
-  - ⏳ reverse proxy
+
+- ✅ mongodb (database)
+- ✅ mongo_express (optional)
+- ✅ minio (s3 file storage)
+- ✅ redis (file cache)
+- ⏳ reverse proxy
 
 ✅ Any-sync
-  - ✅ any-sync-coordinator
-  - ✅ any-sync-node
-  - ✅ any-sync-filenode
+
+- ✅ any-sync-coordinator
+- ✅ any-sync-node
+- ✅ any-sync-filenode
 
 ✅ Middleware libraries
-  - ✅ Desktop
-  - ✅ Android 
-  - ❌ iOS (can only be built on MacOS, which I currently don't have)
 
-⏳ Clients 
-  - ⏳ Desktop
-    - ⏳ Windows (build succeeds, but client won't run properly yet)
-    - ❌ Linux (snapcraft error: snapcraft does not currently support building arm64 on amd64)
-    - ❌ MacOS (can only be built on MacOS, which I currently don't have)
-  - ⏳ Android 
-  - ❌ iOS (can only be built on MacOS, which I currently don't have)
+- ✅ Desktop
+- ✅ Android
+- ❌ iOS (can only be built on MacOS, which I currently don't have)
 
-## Prerequisites 
+⏳ Clients
+
+- ⏳ Desktop
+  - ⏳ Windows (build succeeds, but client won't run properly yet)
+  - ❌ Linux (snapcraft error: snapcraft does not currently support building arm64 on amd64)
+  - ❌ MacOS (can only be built on MacOS, which I currently don't have)
+- ⏳ Android
+- ❌ iOS (can only be built on MacOS, which I currently don't have)
+
+## Prerequisites
+
 In order to follow this guide, you'll need to run a debian based linux distribution such as Debian or Ubuntu with `git` installed. You can install `git` running:
 
 ```bash
@@ -84,7 +89,7 @@ docker compose down
 
 > ℹ️ You can create your own network configuration using the `any-sync-network` tool as provided by Anytype. For the click-to-run experience I want to offer, you don't need to run this command and the default network addresses and configuration will be used. If you do want to setup your own network: `make create-network-conf`. Warning: this will break the docker setup!
 
-To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run:
+To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run the following commands, where teh `make build-client-all` step can be replaced to only build a specific client. Checkout `make help` to find out the commands for the specific clients.
 
 > ⚠️ Don't forget to navigate back to the folder where you already have cloned `any-docker` or where you want to clone the repo if not cloned yet!
 
@@ -92,13 +97,12 @@ To actually use the node, we need to build Anytype clients that can connect to t
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
 make setup-dev-env
-make build-heart
 make build-client-all
 ```
 
 > ℹ️ Note: you only need to run `make setup-dev-env` once to install dependencies and create the required folder structure. If you (accidently) deleted or moved a folder or uninstalled packages required for building Anytype clients, you need to run this command again. You can always run it just to make sure everything is setup properly
 
-Clients will be in the "anytype" folder once done. 
+Clients will be in the "anytype" folder once done.
 
 ## Build nodes
 
