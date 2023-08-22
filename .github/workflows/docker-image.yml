@@ -40,4 +40,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: $REPO/$IMAGENAME_COORDINATOR:$ANYTYPE_VER-$ANY_DOCKER_VER
+          tags: ${{env.REPO}}/${{env.IMAGENAME_COORDINATOR}}:$ANYTYPE_VER-${{env.ANY_DOCKER_VER}}
