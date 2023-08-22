@@ -129,6 +129,10 @@ This will build the following docker images:
 - any-sync-node
 - any-sync-filenode
 
+## Troubleshooting
+
+In the case you run into an error, please remove the `any-docker` folder and start from scratch. There might be some leftover file from a previous run that is not compatible with a newer version of this repo, or a newer version of the Anytype source files. Either way, please submit a Github Issue so I can improve the script :).
+
 ## Contribute
 
 I'm building a Dockerfile and supporting scripts and files based on the instructions as posted here: https://tech.anytype.io/how-to/self-hosting
