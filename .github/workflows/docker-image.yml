@@ -13,7 +13,7 @@ env:
   ANYTYPE_VER: 0.33.9
   ANY_DOCKER_VER: 1
   IMAGEFULLNAME_COORDINATOR: sambouwer/any-sync-coordinator:0.33.9-1
-  #IMAGEFULLNAME_NODE: "$REPO/$IMAGENAME_NODE:$ANYTYPE_VER-$ANY_DOCKER_VER"
+  #IMAGEFULLNAME_NODE: ${{ env.REPO/env.IMAGENAME_NODE }}:${{ env.ANYTYPE_VER }}-${{ env.ANY_DOCKER_VER }}
   #IMAGEFULLNAME_FILENODE: "$REPO/$IMAGENAME_FILENODE:$ANYTYPE_VER-$ANY_DOCKER_VER"
     
 jobs:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build docker image
-        run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=$GOLANG_VER -t $REPO/$IMAGENAME_COORDINATOR:$ANYTYPE_VER-$ANY_DOCKER_VER --target $IMAGENAME_COORDINATOR .
+        run: docker build --file any-node/Dockerfile --pull --build-arg GOLANG_VER=$GOLANG_VER -t ${{ env.REPO }}/${{ env.IMAGENAME_COORDINATOR }}:ANYTYPE_VER-${{ env.ANY_DOCKER_VER }} --target ${{ IMAGENAME_COORDINATOR }} .
         
       - name: Build and push
         uses: docker/build-push-action@v4
