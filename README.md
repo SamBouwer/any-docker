@@ -102,6 +102,13 @@ make build-client-all
 
 > ℹ️ Note: you only need to run `make setup-dev-env` once to install dependencies and create the required folder structure. If you (accidently) deleted or moved a folder or uninstalled packages required for building Anytype clients, you need to run this command again. You can always run it just to make sure everything is setup properly
 
+> ℹ️ Note: if you are running this in WSL, make sure to add the following lines to `/etc/wsl.conf` to ensure snap can be installed:
+> ```
+> [boot]
+> systemd=true
+> ```
+> Then run `wsl.exe --shutdown`
+
 Clients will be in the "anytype" folder once done.
 
 ## Build nodes
