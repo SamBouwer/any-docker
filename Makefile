@@ -43,6 +43,9 @@ help:
 
 .DEFAULT_GOAL := all
 
+version:
+		curl https://raw.githubusercontent.com/anyproto/anytype-ts/main/package.json | jq -r '.version'
+
 pull:
 	    @git pull
 

@@ -7,7 +7,8 @@ ARG GOLANG_VER
 ## BUILD COORDINATOR ##
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-coordinator
-MAINTAINER Sam Bouwer (bouwer.it)
+LABEL maintainer.name="Sam Bouwer"
+LABEL maintainer.website="bouwer.it"
 
 # ENV vars for any-sync-tools to create a new network with 'any-syc-network create'
 
@@ -28,11 +29,11 @@ ENV is-cluster=false
 RUN set -eux; \
         apt-get update; \
         apt-get install -y --no-install-recommends \
-                git \
-                openssl \
-                protobuf-compiler \
-                libprotoc-dev \
-                unzip \
+        git \
+        openssl \
+        protobuf-compiler \
+        libprotoc-dev \
+        unzip \
         ; \
         rm -rf /var/lib/apt/lists/*
 
@@ -73,7 +74,8 @@ CMD ["/bin/bash","-c","./startup_coordinator.sh"]
 ## BUILD SYNC NODE ##
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-node
-MAINTAINER Sam Bouwer (bouwer.it)
+LABEL maintainer.name="Sam Bouwer"
+LABEL maintainer.website="bouwer.it"
 
 # Build any-sync-node
 WORKDIR /anytype
@@ -99,7 +101,8 @@ CMD ["/bin/bash","-c","./startup_node.sh"]
 ## BUILD SYNC FILENODE ##
 
 FROM golang:$GOLANG_VER-bullseye as any-sync-filenode
-MAINTAINER Sam Bouwer (bouwer.it)
+LABEL maintainer.name="Sam Bouwer"
+LABEL maintainer.website="bouwer.it"
 
 # Build any-sync-filenode
 WORKDIR /anytype
