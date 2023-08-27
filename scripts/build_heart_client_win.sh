@@ -83,6 +83,9 @@ npm exec electron-builder@24.6.3 install-app-deps --platform=win32 --arch=x64
 # Another fix to prevent issue described here: https://github.com/anyproto/anytype-ts/issues/159
 npm run update:locale
 
+# Make sure deps are installed
+npm run build:deps
+
 # Actual build (wskip signing as mentioned here: https://github.com/anyproto/anytype-ts/issues/159#issuecomment-1666595258)
 ELECTRON_SKIP_NOTARIZE=1 ELECTRON_SKIP_SENTRY=1 npm run dist:win
 
