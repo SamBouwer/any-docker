@@ -87,5 +87,5 @@ npm run update:locale
 ELECTRON_SKIP_NOTARIZE=1 ELECTRON_SKIP_SENTRY=1 npm run dist:win
 
 #Run
-echo "Running local server..."
-SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
+#echo "Running local server..."
+#SERVER_PORT=1443 ANYPROF=:1444 npm run start:dev-win
