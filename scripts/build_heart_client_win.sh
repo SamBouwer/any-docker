@@ -32,7 +32,7 @@ else
 fi
 echo "Cleaning up..."
 rm -f dist/*
-rm -f node_modules/*
+rm -r node_modules
 echo "Starting npm install..."
 npm install -D
 
