@@ -102,10 +102,19 @@ To actually use the node, we need to build Anytype clients that can connect to t
 
 > ⚠️ Don't forget to navigate back to the folder where you already have cloned `any-docker` or where you want to clone the repo if not cloned yet!
 
+You only need to run this part if you did not pull the any-docker repository in a previous step
 ```bash
 git clone https://github.com/SamBouwer/any-docker
 cd any-docker
+```
+
+Now setup the development environment by installing all required dependencies
+```bash
 make setup-dev-env
+```
+
+Finally, build the clients.
+```bash
 make build-client-all
 ```
 
