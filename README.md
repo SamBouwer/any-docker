@@ -56,7 +56,16 @@ To get started, clone this repository, enter the directory, and run your node in
 
 ```bash
 git clone https://github.com/SamBouwer/any-docker
+```
+
+Now enter the directory you just pulled from Github
+
+```bash
 cd any-docker/any-node/
+```
+
+Fire up 🔥 docker compose!
+```bash
 docker compose up -d
 ```
 
