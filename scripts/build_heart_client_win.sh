@@ -83,7 +83,7 @@ npm run update:locale
 
 # Fix to install specific issue with "keytar.node is not a valid Win32 application" when running the client
 
-npm exec electron-builder@24.6.3 install-app-deps --platform=win32 --arch=x64
+npx electron-builder@24.6.3 install-app-deps --platform=win32 --arch=x64
 
 # Make sure deps are installed
 npm run build:deps
