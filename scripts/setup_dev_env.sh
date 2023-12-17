@@ -11,6 +11,8 @@ workdir=${workdir:-/}
 
 mkdir -p "$workdir/anytype-clients"
 
+# Check if Go is already installed
+
 while getopts v: flag
 do
     case "${flag}" in
@@ -20,6 +22,8 @@ do
 done
 
 GOLANG_VER_INSTALLED=$(go version)
+
+# Install Go if not already present
 
 if [ "${GOLANG_VER_INSTALLED}" == "go version go${GOLANG_VER} linux/amd64" ] ; then
   echo "'go version go${GOLANG_VER} linux/amd64' is already installed, skipping..."
@@ -57,8 +61,8 @@ set -eux; \
                 android-sdk `# needed for building middleware libraries for Android` \
                 unzip `# needed for unzipping downloads` \
                 npm `# needed for building the desktop client` \
-                libsecret-1-dev `# needed for ...` \
-                jq `# needed for ...` \
+                libsecret-1-dev `# needed for storing and retrieving secrets` \
+                jq `# needed for JSON processing` \
                 wine `# needed for building the desktop client for Windows` \
                 wine32 `# needed for building the desktop client for Windows` \
                 docker-ce `# needed for building and running docker images` \
