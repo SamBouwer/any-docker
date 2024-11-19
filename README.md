@@ -1,5 +1,5 @@
-⚠️Important note from the devs⚠️
-> Hello, we have merged multi-spaces into main branch, we have some more tasks to do and we hope to start beta-testing later in October. Please, if you use app built from source, be aware that there are risks of potential damage to your accounts, so be careful. Right now we are testing spaces internally.
+⚠️This project is nog longer being maintained⚠️
+As I'm no longer actively using Anytype, I'm no longer maintaining this project. Feel free to fork! 
 
 # any-docker
 
