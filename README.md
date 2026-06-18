@@ -101,7 +101,7 @@ docker compose down
 
 > ℹ️ You can create your own network configuration using the `any-sync-network` tool as provided by Anytype. For the click-to-run experience I want to offer, you don't need to run this command and the default network addresses and configuration will be used. If you do want to setup your own network: `make create-network-conf`. Warning: this will break the docker setup!
 
-To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run the following commands, where teh `make build-client-all` step can be replaced to only build a specific client. Checkout `make help` to find out the commands for the specific clients.
+To actually use the node, we need to build Anytype clients that can connect to this node. In the current version, the connection configuration and middleware libraries are baked into the clients when the clients are built from source. To build the middleware libraries and Anytype clients, run the following commands, where the `make build-client-all` step can be replaced to only build a specific client. Checkout `make help` to find out the commands for the specific clients.
 
 > ⚠️ Don't forget to navigate back to the folder where you already have cloned `any-docker` or where you want to clone the repo if not cloned yet!
 
